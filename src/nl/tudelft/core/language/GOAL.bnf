@@ -1,0 +1,22 @@
+{
+  parserClass="nl.tudelft.core.parser.GOALParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Simple"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.simpleplugin.psi"
+  psiImplPackage="com.simpleplugin.psi.impl"
+
+  elementTypeHolderClass="nl.tudelft.core.language.psi.GOALType"
+  elementTypeClass="nl.tudelft.core.language.psi.GoalTokenType"
+  tokenTypeClass="nl.tudelft.core.language.psi.GoalTokenType"
+}
+
+mas2g ::= item_*
+mod2g ::= item_*
+act2g ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
