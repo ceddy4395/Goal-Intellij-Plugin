@@ -4,7 +4,6 @@ package nl.tudelft.core.language.psi;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import com.simpleplugin.psi.impl.*;
 
 public interface GOALType {
 
@@ -22,13 +21,13 @@ public interface GOALType {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
        if (type == ACT_2_G) {
-        return new SimpleAct2GImpl(node);
+        return new GoalAct2GImpl(node);
       }
       else if (type == MOD_2_G) {
-        return new SimpleMod2GImpl(node);
+        return new GoalMod2GImpl(node);
       }
       else if (type == PROPERTY) {
-        return new SimplePropertyImpl(node);
+        return new GoalPropertyImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

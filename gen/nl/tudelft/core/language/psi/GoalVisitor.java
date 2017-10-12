@@ -1,21 +1,21 @@
 // This is a generated file. Not intended for manual editing.
-package com.simpleplugin.psi;
+package nl.tudelft.core.language.psi;
 
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
 
-public class SimpleVisitor extends PsiElementVisitor {
+public class GoalVisitor extends PsiElementVisitor {
 
-  public void visitAct2G(@NotNull SimpleAct2G o) {
+  public void visitAct2G(@NotNull GoalAct2G o) {
     visitPsiElement(o);
   }
 
-  public void visitMod2G(@NotNull SimpleMod2G o) {
+  public void visitMod2G(@NotNull GoalMod2G o) {
     visitPsiElement(o);
   }
 
-  public void visitProperty(@NotNull SimpleProperty o) {
+  public void visitProperty(@NotNull GoalProperty o) {
     visitPsiElement(o);
   }
 

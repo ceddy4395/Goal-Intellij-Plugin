@@ -7,12 +7,12 @@ import com.intellij.psi.TokenType;
 
 %%
 
-%class GoalLexer
+%class GOALLexer
 %implements FlexLexer
 %unicode
+%function advance
 %type IElementType
-%eof{
-    return;
+%eof{  return;
 %eof}
 
 CRLF=\R
@@ -42,4 +42,3 @@ KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 ({CRLF}|{WHITE_SPACE})+                                     { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 
 .                                                           { return TokenType.BAD_CHARACTER; }
-

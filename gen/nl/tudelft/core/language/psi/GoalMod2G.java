@@ -1,13 +1,13 @@
 // This is a generated file. Not intended for manual editing.
-package com.simpleplugin.psi;
+package nl.tudelft.core.language.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface SimpleAct2G extends PsiElement {
+public interface GoalMod2G extends PsiElement {
 
   @NotNull
-  List<SimpleProperty> getPropertyList();
+  List<GoalProperty> getPropertyList();
 
 }

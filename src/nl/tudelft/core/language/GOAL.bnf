@@ -3,10 +3,10 @@
 
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
-  psiClassPrefix="Simple"
+  psiClassPrefix="Goal"
   psiImplClassSuffix="Impl"
-  psiPackage="com.simpleplugin.psi"
-  psiImplPackage="com.simpleplugin.psi.impl"
+  psiPackage="nl.tudelft.core.language.psi"
+  psiImplPackage="nl.tudelft.core.language.psi"
 
   elementTypeHolderClass="nl.tudelft.core.language.psi.GOALType"
   elementTypeClass="nl.tudelft.core.language.psi.GoalTokenType"

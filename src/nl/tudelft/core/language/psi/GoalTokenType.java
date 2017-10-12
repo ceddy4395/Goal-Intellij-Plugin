@@ -12,6 +12,6 @@ public class GoalTokenType extends IElementType {
 
     @Override
     public String toString() {
-        return "SimpleTokenType." + super.toString();
+        return "GoalTokenType" + super.toString();
     }
 }

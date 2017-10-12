@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 public class MAS2GFile extends PsiFileBase {
-    protected MAS2GFile(@NotNull FileViewProvider viewProvider) {
+    public MAS2GFile(@NotNull FileViewProvider viewProvider) {
         super(viewProvider, GoalLanguage.instance);
     }
 

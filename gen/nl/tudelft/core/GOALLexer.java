@@ -13,7 +13,7 @@ import com.intellij.psi.TokenType;
  * <a href="http://www.jflex.de/">JFlex</a> 1.7.0-SNAPSHOT
  * from the specification file <tt>Goal.flex</tt>
  */
-class GoalLexer implements FlexLexer {
+class GOALLexer implements FlexLexer {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -237,7 +237,7 @@ class GoalLexer implements FlexLexer {
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  GoalLexer(java.io.Reader in) {
+  GOALLexer(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -393,8 +393,7 @@ class GoalLexer implements FlexLexer {
   private void zzDoEOF() {
     if (!zzEOFDone) {
       zzEOFDone = true;
-        return;
-
+    
     }
   }
 
@@ -406,7 +405,7 @@ class GoalLexer implements FlexLexer {
    * @return      the next token
    * @exception   java.io.IOException  if any I/O-Error occurs
    */
-  public IElementType yylex() throws java.io.IOException {
+  public IElementType advance() throws java.io.IOException {
     int zzInput;
     int zzAction;
 
