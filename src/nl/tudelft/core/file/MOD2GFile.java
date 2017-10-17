@@ -3,6 +3,7 @@ package nl.tudelft.core.file;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import nl.tudelft.core.file.FileFactory.MOD2GFileType;
 import nl.tudelft.core.language.GoalLanguage;
 import org.jetbrains.annotations.NotNull;
 

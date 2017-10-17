@@ -1,46 +1,46 @@
 package nl.tudelft.core.file;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import nl.tudelft.core.language.GoalIcon;
+import nl.tudelft.core.Icons;
 import nl.tudelft.core.language.GoalLanguage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
-public class MOD2GFileType extends LanguageFileType {
+public class PLFileType extends LanguageFileType {
 
-    public static final MOD2GFileType INSTANCE = new MOD2GFileType();
+    public static final PLFileType INSTANCE = new PLFileType();
+
 
     /**
      * Creates a language file type for the specified language.
-     *
      */
-    protected MOD2GFileType() {
+    protected PLFileType() {
         super(GoalLanguage.instance);
     }
 
     @NotNull
     @Override
     public String getName() {
-        return "module";
+        return "Prolog file";
     }
 
     @NotNull
     @Override
     public String getDescription() {
-        return "A module for an agent";
+        return "Prolog File";
     }
 
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "mod2g";
+        return "pl";
     }
 
     @Nullable
     @Override
     public Icon getIcon() {
-        return GoalIcon.MOD2G;
+        return Icons.PL;
     }
 }

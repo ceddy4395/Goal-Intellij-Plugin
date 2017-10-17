@@ -1,7 +1,7 @@
-package nl.tudelft.core.file;
+package nl.tudelft.core.file.FileFactory;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import nl.tudelft.core.language.GoalIcon;
+import nl.tudelft.core.Icons;
 import nl.tudelft.core.language.GoalLanguage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,6 +40,6 @@ public class ACT2GFileType extends LanguageFileType {
     @Nullable
     @Override
     public Icon getIcon() {
-        return GoalIcon.MOD2G;
+        return Icons.MOD2G;
     }
 }
