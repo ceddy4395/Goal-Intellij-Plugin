@@ -32,6 +32,10 @@
     <!-- Add your extensions here -->
   </extensions>
 
+  <extensions defaultExtensionNs="com.intellij">
+    <configurationType implementation="nl.tudelft.core.language.GoalRunConfigurationType"/>
+  </extensions>
+
   <actions>
     <!-- Add your actions here -->
   </actions>
