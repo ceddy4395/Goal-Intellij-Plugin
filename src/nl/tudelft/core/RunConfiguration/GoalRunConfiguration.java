@@ -1,4 +1,4 @@
-package nl.tudelft.core.language;
+package nl.tudelft.core.RunConfiguration;
 
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
@@ -31,7 +31,7 @@ public class GoalRunConfiguration extends RunConfigurationBase {
 
     private String runFilePath = null;
 
-    protected GoalRunConfiguration(@NotNull Project project, @NotNull ConfigurationFactory factory, String name) {
+    public GoalRunConfiguration(@NotNull Project project, @NotNull ConfigurationFactory factory, String name) {
         super(project, factory, name);
     }
 

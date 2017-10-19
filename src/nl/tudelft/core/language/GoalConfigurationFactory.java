@@ -4,10 +4,11 @@ import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.openapi.project.Project;
+import nl.tudelft.core.RunConfiguration.GoalRunConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 public class GoalConfigurationFactory extends ConfigurationFactory {
-    protected GoalConfigurationFactory(@NotNull ConfigurationType type) {
+    public GoalConfigurationFactory(@NotNull ConfigurationType type) {
         super(type);
     }
 

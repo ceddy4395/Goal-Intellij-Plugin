@@ -1,4 +1,4 @@
-package nl.tudelft.core.language;
+package nl.tudelft.core.RunConfiguration;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -13,6 +13,7 @@ import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import nl.tudelft.core.GoalLexerAdapter;
 import nl.tudelft.core.file.MAS2GFile;
+import nl.tudelft.core.language.GoalLanguage;
 import nl.tudelft.core.language.psi.GOALType;
 import nl.tudelft.core.parser.GOALParser;
 import org.jetbrains.annotations.NotNull;

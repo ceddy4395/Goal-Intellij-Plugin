@@ -28,12 +28,12 @@
 
   <extensions defaultExtensionNs="com.intellij">
       <fileTypeFactory implementation="nl.tudelft.core.file.FileFactory.GoalFileFactory"/>
-    <lang.parserDefinition language="Goal" implementationClass="nl.tudelft.core.language.GoalParserDefinition"/>
+    <lang.parserDefinition language="Goal" implementationClass="nl.tudelft.core.RunConfiguration.GoalParserDefinition"/>
     <!-- Add your extensions here -->
   </extensions>
 
   <extensions defaultExtensionNs="com.intellij">
-    <configurationType implementation="nl.tudelft.core.language.GoalRunConfigurationType"/>
+    <configurationType implementation="nl.tudelft.core.RunConfiguration.GoalRunConfigurationType"/>
   </extensions>
 
   <actions>

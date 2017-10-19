@@ -1,4 +1,4 @@
-package nl.tudelft.core.language;
+package nl.tudelft.core.RunConfiguration;
 
 import java.io.IOException;
 import java.io.InputStream;

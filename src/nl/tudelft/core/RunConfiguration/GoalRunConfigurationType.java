@@ -1,8 +1,9 @@
-package nl.tudelft.core.language;
+package nl.tudelft.core.RunConfiguration;
 
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import nl.tudelft.core.Icons;
+import nl.tudelft.core.language.GoalConfigurationFactory;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
