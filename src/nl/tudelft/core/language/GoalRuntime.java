@@ -36,8 +36,7 @@ public final class GoalRuntime {
      */
     private GoalRuntime() {
         try {
-            this.runtimePath = Files.createTempFile("goal-intellij", ".jar");
-
+            this.runtimePath = Files.createTempFile("goal-runtime", ".jar");
             try (InputStream in  = this.getClass().getResourceAsStream("/bin/runtime.jar");
                  OutputStream out = Files.newOutputStream(this.runtimePath)) {
                 final byte[] buffer = new byte[8192];
