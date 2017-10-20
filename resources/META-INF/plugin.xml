@@ -30,6 +30,7 @@
       <fileTypeFactory implementation="nl.tudelft.core.file.FileFactory.GoalFileFactory"/>
     <lang.parserDefinition language="Goal" implementationClass="nl.tudelft.core.RunConfiguration.GoalParserDefinition"/>
     <lang.syntaxHighlighterFactory language="Goal" implementationClass="nl.tudelft.core.language.Syntax.GoalSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="nl.tudelft.core.language.Syntax.GoalColorSettingsPage"/>
     <!-- Add your extensions here -->
   </extensions>
 

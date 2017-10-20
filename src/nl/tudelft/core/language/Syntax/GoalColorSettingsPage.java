@@ -15,9 +15,9 @@ import java.util.Map;
 public class GoalColorSettingsPage implements ColorSettingsPage {
 
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
-            new AttributesDescriptor("Key", GoalSyntaxHighlighter.KEY),
-            new AttributesDescriptor("Separator", GoalSyntaxHighlighter.SEPARATOR),
-            new AttributesDescriptor("Value", GoalSyntaxHighlighter.VALUE)
+//            new AttributesDescriptor("Key", GoalSyntaxHighlighter.KEY),
+//            new AttributesDescriptor("Separator", GoalSyntaxHighlighter.SEPARATOR),
+//            new AttributesDescriptor("Value", GoalSyntaxHighlighter.VALUE)
     };
 
     @Nullable
@@ -35,7 +35,19 @@ public class GoalColorSettingsPage implements ColorSettingsPage {
     @NotNull
     @Override
     public String getDemoText() {
-        return null;
+        return "use Generic as knowledge. \n" +
+                "use Generic as actionspec.\n" +
+                "order = linear\n " +
+
+                "module Generic { \n" +
+            "if goal(researching(Thing)) then \n " +
+            "research(Thing) + \n" +
+                    "sleep(100).\n " +
+
+            "if goal(morphing(Thing)) then\n" +
+            "morph(Thing) + \n" +
+                "sleep(100).\n" +
+        "};\n";
     }
 
     @Nullable
