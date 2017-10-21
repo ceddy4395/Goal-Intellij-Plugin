@@ -1,4 +1,4 @@
-# Goal-Intelij
+# Goal-Intelij-Plugin
 
 ## Goal
 Goal is created at the TU Delft by the department of Artificial Inteligince. It is mainly used for Multi Agent Systems.
@@ -11,3 +11,5 @@ This plugin is a alternative for the eclipse plugin used to compile and run the 
 The plugin can be installed by downloading the latest zip from the releases. 
 Then go to ``File -> Settings -> Plugins -> Install Plugin from Disk``, Select the plugin and press 
 ``OK`` then don't forget to restart Intellij.
+
+The latest release can be found at: https://github.com/ceddy4395/Goal-Intellij-Plugin/releases/download/v0.1-Pre-Alpha/Goal-Intelij-Plugin.zip
