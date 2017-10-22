@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface GoalMod2G extends PsiElement {
+public interface GoalInstruction extends PsiElement {
+
+  @Nullable
+  GoalConstraintList getConstraintList();
 
   @NotNull
-  List<GoalProperty> getPropertyList();
+  GoalIdentifier getIdentifier();
 
 }

@@ -10,19 +10,25 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static nl.tudelft.core.language.psi.GOALType.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 
-public class GoalPropertyImpl extends ASTWrapperPsiElement implements GoalProperty {
+public class GoalUseCaseImpl extends ASTWrapperPsiElement implements GoalUseCase {
 
-  public GoalPropertyImpl(ASTNode node) {
+  public GoalUseCaseImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull GoalVisitor visitor) {
-    visitor.visitProperty(this);
+    visitor.visitUseCase(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof GoalVisitor) accept((GoalVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getUseCaseVal() {
+    return findNotNullChildByType(USE_CASE_VAL);
   }
 
 }

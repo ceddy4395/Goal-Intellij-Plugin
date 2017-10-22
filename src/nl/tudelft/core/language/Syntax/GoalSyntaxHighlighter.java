@@ -6,6 +6,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
 import nl.tudelft.core.GoalLexerAdapter;
+import nl.tudelft.core.language.psi.GOALType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -69,7 +70,8 @@ public class GoalSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final Map<IElementType, TextAttributesKey[]> MAPPING = new HashMap<>();
 
     static {
-//        MAPPING.put(GOALType.USE, KEYWORDS);
+        MAPPING.put(GOALType.COMMENT, COMMENTS);
+        MAPPING.put(GOALType.USE, KEYWORDS);
 //        MAPPING.put(GOALType.AS, KEYWORDS);
 //        MAPPING.put(GOALType.ENVIRONMENT, KEYWORDS);
 //        MAPPING.put(GOALType.WITH, KEYWORDS);

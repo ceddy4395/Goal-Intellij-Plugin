@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static nl.tudelft.core.language.psi.GOALType.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 
-public class GoalMod2GImpl extends ASTWrapperPsiElement implements GoalMod2G {
+public class GoalStringImpl extends ASTWrapperPsiElement implements GoalString {
 
-  public GoalMod2GImpl(ASTNode node) {
+  public GoalStringImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull GoalVisitor visitor) {
-    visitor.visitMod2G(this);
+    visitor.visitString(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -26,9 +26,15 @@ public class GoalMod2GImpl extends ASTWrapperPsiElement implements GoalMod2G {
   }
 
   @Override
-  @NotNull
-  public List<GoalProperty> getPropertyList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, GoalProperty.class);
+  @Nullable
+  public PsiElement getDqstring() {
+    return findChildByType(DQSTRING);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getSqstring() {
+    return findChildByType(SQSTRING);
   }
 
 }

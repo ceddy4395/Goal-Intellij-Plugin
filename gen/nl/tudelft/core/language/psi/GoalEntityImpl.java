@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static nl.tudelft.core.language.psi.GOALType.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 
-public class GoalAct2GImpl extends ASTWrapperPsiElement implements GoalAct2G {
+public class GoalEntityImpl extends ASTWrapperPsiElement implements GoalEntity {
 
-  public GoalAct2GImpl(ASTNode node) {
+  public GoalEntityImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull GoalVisitor visitor) {
-    visitor.visitAct2G(this);
+    visitor.visitEntity(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -26,9 +26,9 @@ public class GoalAct2GImpl extends ASTWrapperPsiElement implements GoalAct2G {
   }
 
   @Override
-  @NotNull
-  public List<GoalProperty> getPropertyList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, GoalProperty.class);
+  @Nullable
+  public GoalSimpleIdentifier getSimpleIdentifier() {
+    return findChildByClass(GoalSimpleIdentifier.class);
   }
 
 }

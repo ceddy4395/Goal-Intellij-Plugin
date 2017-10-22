@@ -5,9 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface GoalAct2G extends PsiElement {
+public interface GoalMasFile extends PsiElement {
 
   @NotNull
-  List<GoalProperty> getPropertyList();
+  List<GoalAgentBlock> getAgentBlockList();
+
+  @Nullable
+  GoalEnvironmentSpec getEnvironmentSpec();
+
+  @NotNull
+  GoalLaunchPolicy getLaunchPolicy();
 
 }
