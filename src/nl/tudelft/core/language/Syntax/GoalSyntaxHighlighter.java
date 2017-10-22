@@ -72,15 +72,14 @@ public class GoalSyntaxHighlighter extends SyntaxHighlighterBase {
     static {
         MAPPING.put(GOALType.COMMENT, COMMENTS);
         MAPPING.put(GOALType.USE, KEYWORDS);
-//        MAPPING.put(GOALType.AS, KEYWORDS);
-//        MAPPING.put(GOALType.ENVIRONMENT, KEYWORDS);
-//        MAPPING.put(GOALType.WITH, KEYWORDS);
-//        MAPPING.put(GOALType.DEFINE, KEYWORDS);
-////        MAPPING.put(GOALType.AGENT, KEYWORDS);
-//        MAPPING.put(GOALType.MODULE, KEYWORDS);
-////        MAPPING.put(GOALType.LAUNCHPOLICY, KEYWORDS);
-////        MAPPING.put(GOALType.WHEN, KEYWORDS);
-////        MAPPING.put(GOALType.LAUNCH, KEYWORDS);
+        MAPPING.put(GOALType.AS, KEYWORDS);
+        MAPPING.put(GOALType.ENVIRONMENT, KEYWORDS);
+        MAPPING.put(GOALType.WITH, KEYWORDS);
+        MAPPING.put(GOALType.DEFINE, KEYWORDS);
+        MAPPING.put(GOALType.MODULE, KEYWORDS);
+        MAPPING.put(GOALType.LAUNCHPOLICY, KEYWORDS);
+        MAPPING.put(GOALType.WHEN, KEYWORDS);
+        MAPPING.put(GOALType.LAUNCH, KEYWORDS);
 ////        MAPPING.put(GOALType.TYPE, KEYWORDS);
 ////        MAPPING.put(GOALType.NAME, KEYWORDS);
 //        MAPPING.put(GOALType.NUMBER, KEYWORDS);

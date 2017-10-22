@@ -172,15 +172,15 @@ masFile ::= environmentSpec? agentBlock+ launchPolicy
 
 environmentSpec ::= 'use' string 'as' 'environment' ('with' environmentPropertyList)? '.'
 environmentPropertyList ::= environmentProperty (',' environmentProperty)*
-environmentProperty ::= identifier '=' (identifier | numberLiteral | list)
+environmentProperty ::= identifier '=' (identifier | numberLiteral)
 
-agentBlock ::= 'define' identifier 'as' '{' useClause+ '}'
+agentBlock ::= 'define' identifier 'as' 'agent {' useClause+ '}'
 
-useClause ::= 'use' moduleId 'as' 'agent' useCase '.'
+useClause ::= 'use' moduleId 'as' useCase '.'
 useCase ::= USE_CASE_VAL 'module'?
 
-moduleId ::= string | moduleString
-moduleString ::= ID ('.' ID)*
+moduleId ::=  moduleString
+moduleString ::= simpleIdentifier ('.' simpleIdentifier)*
 
 launchPolicy ::= 'launchpolicy' '{' launchRule+ '}'
 launchRule ::= ('when' entity)? 'launch' instructionList '.'
@@ -194,6 +194,3 @@ simpleIdentifier ::= ID
 identifier ::= ID | string | atom
 string ::= SQSTRING | DQSTRING
 numberLiteral ::= INTEGER | REAL
-//list ::= '[' (string | atom | list) ']'
-list ::= '[' (termList | list) ']' {pin='['}
-termList ::=  term (',' term)* {name=term}

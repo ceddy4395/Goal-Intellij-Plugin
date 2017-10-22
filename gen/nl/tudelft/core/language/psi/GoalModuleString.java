@@ -7,4 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface GoalModuleString extends PsiElement {
 
+  @NotNull
+  List<GoalSimpleIdentifier> getSimpleIdentifierList();
+
 }

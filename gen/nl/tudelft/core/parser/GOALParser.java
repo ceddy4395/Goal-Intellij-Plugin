@@ -59,9 +59,6 @@ public class GOALParser implements PsiParser, LightPsiParser {
     else if (t == LAUNCH_RULE) {
       r = launchRule(b, 0);
     }
-    else if (t == LIST) {
-      r = list(b, 0);
-    }
     else if (t == MAS_FILE) {
       r = masFile(b, 0);
     }
@@ -80,9 +77,6 @@ public class GOALParser implements PsiParser, LightPsiParser {
     else if (t == STRING) {
       r = string(b, 0);
     }
-    else if (t == TERM_LIST) {
-      r = termList(b, 0);
-    }
     else if (t == USE_CASE) {
       r = useCase(b, 0);
     }
@@ -100,7 +94,7 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // 'define' identifier 'as' '{' useClause+ '}'
+  // 'define' identifier 'as' 'agent {' useClause+ '}'
   public static boolean agentBlock(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "agentBlock")) return false;
     if (!nextTokenIs(b, DEFINE)) return false;
@@ -108,7 +102,8 @@ public class GOALParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, DEFINE);
     r = r && identifier(b, l + 1);
-    r = r && consumeTokens(b, 0, AS, OCURLY);
+    r = r && consumeToken(b, AS);
+    r = r && consumeToken(b, "agent {");
     r = r && agentBlock_4(b, l + 1);
     r = r && consumeToken(b, CCURLY);
     exit_section_(b, m, AGENT_BLOCK, r);
@@ -248,7 +243,7 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // identifier '=' (identifier | numberLiteral | list)
+  // identifier '=' (identifier | numberLiteral)
   public static boolean environmentProperty(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "environmentProperty")) return false;
     boolean r;
@@ -260,14 +255,13 @@ public class GOALParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // identifier | numberLiteral | list
+  // identifier | numberLiteral
   private static boolean environmentProperty_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "environmentProperty_2")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = identifier(b, l + 1);
     if (!r) r = numberLiteral(b, l + 1);
-    if (!r) r = list(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -483,31 +477,6 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '[' (termList | list) ']'
-  public static boolean list(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "list")) return false;
-    if (!nextTokenIs(b, OBRACKET)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, OBRACKET);
-    r = r && list_1(b, l + 1);
-    r = r && consumeToken(b, CBRACKET);
-    exit_section_(b, m, LIST, r);
-    return r;
-  }
-
-  // termList | list
-  private static boolean list_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "list_1")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = termList(b, l + 1);
-    if (!r) r = list(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  /* ********************************************************** */
   // environmentSpec? agentBlock+ launchPolicy
   public static boolean masFile(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "masFile")) return false;
@@ -545,31 +514,31 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // string | moduleString
+  // moduleString
   public static boolean moduleId(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleId")) return false;
+    if (!nextTokenIs(b, ID)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MODULE_ID, "<module id>");
-    r = string(b, l + 1);
-    if (!r) r = moduleString(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
+    Marker m = enter_section_(b);
+    r = moduleString(b, l + 1);
+    exit_section_(b, m, MODULE_ID, r);
     return r;
   }
 
   /* ********************************************************** */
-  // ID ('.' ID)*
+  // simpleIdentifier ('.' simpleIdentifier)*
   public static boolean moduleString(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleString")) return false;
     if (!nextTokenIs(b, ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, ID);
+    r = simpleIdentifier(b, l + 1);
     r = r && moduleString_1(b, l + 1);
     exit_section_(b, m, MODULE_STRING, r);
     return r;
   }
 
-  // ('.' ID)*
+  // ('.' simpleIdentifier)*
   private static boolean moduleString_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleString_1")) return false;
     int c = current_position_(b);
@@ -581,12 +550,13 @@ public class GOALParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // '.' ID
+  // '.' simpleIdentifier
   private static boolean moduleString_1_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleString_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, DOT, ID);
+    r = consumeToken(b, DOT);
+    r = r && simpleIdentifier(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -644,41 +614,6 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // term (',' term)*
-  public static boolean termList(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "termList")) return false;
-    if (!nextTokenIs(b, "<term>", TERM)) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TERM_LIST, "<term>");
-    r = consumeToken(b, TERM);
-    r = r && termList_1(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  // (',' term)*
-  private static boolean termList_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "termList_1")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!termList_1_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "termList_1", c)) break;
-      c = current_position_(b);
-    }
-    return true;
-  }
-
-  // ',' term
-  private static boolean termList_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "termList_1_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, COMMA, TERM);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  /* ********************************************************** */
   // USE_CASE_VAL 'module'?
   public static boolean useCase(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useCase")) return false;
@@ -699,7 +634,7 @@ public class GOALParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // 'use' moduleId 'as' 'agent' useCase '.'
+  // 'use' moduleId 'as' useCase '.'
   public static boolean useClause(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useClause")) return false;
     if (!nextTokenIs(b, USE)) return false;
@@ -707,7 +642,7 @@ public class GOALParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, USE);
     r = r && moduleId(b, l + 1);
-    r = r && consumeTokens(b, 0, AS, AGENT);
+    r = r && consumeToken(b, AS);
     r = r && useCase(b, l + 1);
     r = r && consumeToken(b, DOT);
     exit_section_(b, m, USE_CLAUSE, r);

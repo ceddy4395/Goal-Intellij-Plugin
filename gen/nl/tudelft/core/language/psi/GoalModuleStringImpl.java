@@ -25,4 +25,10 @@ public class GoalModuleStringImpl extends ASTWrapperPsiElement implements GoalMo
     else super.accept(visitor);
   }
 
+  @Override
+  @NotNull
+  public List<GoalSimpleIdentifier> getSimpleIdentifierList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, GoalSimpleIdentifier.class);
+  }
+
 }

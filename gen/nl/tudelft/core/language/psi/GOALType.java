@@ -19,14 +19,12 @@ public interface GOALType {
   IElementType INSTRUCTION_LIST = new GoalTokenType("INSTRUCTION_LIST");
   IElementType LAUNCH_POLICY = new GoalTokenType("LAUNCH_POLICY");
   IElementType LAUNCH_RULE = new GoalTokenType("LAUNCH_RULE");
-  IElementType LIST = new GoalTokenType("LIST");
   IElementType MAS_FILE = new GoalTokenType("MAS_FILE");
   IElementType MODULE_ID = new GoalTokenType("MODULE_ID");
   IElementType MODULE_STRING = new GoalTokenType("MODULE_STRING");
   IElementType NUMBER_LITERAL = new GoalTokenType("NUMBER_LITERAL");
   IElementType SIMPLE_IDENTIFIER = new GoalTokenType("SIMPLE_IDENTIFIER");
   IElementType STRING = new GoalTokenType("STRING");
-  IElementType TERM_LIST = new GoalTokenType("TERM_LIST");
   IElementType USE_CASE = new GoalTokenType("USE_CASE");
   IElementType USE_CLAUSE = new GoalTokenType("USE_CLAUSE");
 
@@ -117,7 +115,6 @@ public interface GOALType {
   IElementType SOFT_IMPLIES = new GoalTokenType("*->");
   IElementType SQSTRING = new GoalTokenType("SQSTRING");
   IElementType STAR = new GoalTokenType("*");
-  IElementType TERM = new GoalTokenType("term");
   IElementType TEST = new GoalTokenType("test");
   IElementType TEST_COND = new GoalTokenType("TEST_COND");
   IElementType THEN = new GoalTokenType("then");
@@ -172,9 +169,6 @@ public interface GOALType {
       else if (type == LAUNCH_RULE) {
         return new GoalLaunchRuleImpl(node);
       }
-      else if (type == LIST) {
-        return new GoalListImpl(node);
-      }
       else if (type == MAS_FILE) {
         return new GoalMasFileImpl(node);
       }
@@ -192,9 +186,6 @@ public interface GOALType {
       }
       else if (type == STRING) {
         return new GoalStringImpl(node);
-      }
-      else if (type == TERM_LIST) {
-        return new GoalTermListImpl(node);
       }
       else if (type == USE_CASE) {
         return new GoalUseCaseImpl(node);

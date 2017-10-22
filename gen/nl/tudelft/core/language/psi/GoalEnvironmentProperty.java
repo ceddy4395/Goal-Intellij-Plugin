@@ -11,9 +11,6 @@ public interface GoalEnvironmentProperty extends PsiElement {
   List<GoalIdentifier> getIdentifierList();
 
   @Nullable
-  GoalList getList();
-
-  @Nullable
   GoalNumberLiteral getNumberLiteral();
 
 }

@@ -7,10 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface GoalModuleId extends PsiElement {
 
-  @Nullable
+  @NotNull
   GoalModuleString getModuleString();
-
-  @Nullable
-  GoalString getString();
 
 }

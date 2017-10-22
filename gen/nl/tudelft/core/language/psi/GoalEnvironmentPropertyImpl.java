@@ -33,12 +33,6 @@ public class GoalEnvironmentPropertyImpl extends ASTWrapperPsiElement implements
 
   @Override
   @Nullable
-  public GoalList getList() {
-    return findChildByClass(GoalList.class);
-  }
-
-  @Override
-  @Nullable
   public GoalNumberLiteral getNumberLiteral() {
     return findChildByClass(GoalNumberLiteral.class);
   }

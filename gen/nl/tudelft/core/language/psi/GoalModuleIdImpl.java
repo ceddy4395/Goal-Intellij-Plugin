@@ -26,15 +26,9 @@ public class GoalModuleIdImpl extends ASTWrapperPsiElement implements GoalModule
   }
 
   @Override
-  @Nullable
+  @NotNull
   public GoalModuleString getModuleString() {
-    return findChildByClass(GoalModuleString.class);
-  }
-
-  @Override
-  @Nullable
-  public GoalString getString() {
-    return findChildByClass(GoalString.class);
+    return findNotNullChildByClass(GoalModuleString.class);
   }
 
 }

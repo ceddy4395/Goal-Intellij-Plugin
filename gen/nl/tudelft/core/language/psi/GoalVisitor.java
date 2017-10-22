@@ -55,10 +55,6 @@ public class GoalVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitList(@NotNull GoalList o) {
-    visitPsiElement(o);
-  }
-
   public void visitMasFile(@NotNull GoalMasFile o) {
     visitPsiElement(o);
   }
@@ -80,10 +76,6 @@ public class GoalVisitor extends PsiElementVisitor {
   }
 
   public void visitString(@NotNull GoalString o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTermList(@NotNull GoalTermList o) {
     visitPsiElement(o);
   }
 
