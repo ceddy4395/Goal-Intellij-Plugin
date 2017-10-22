@@ -9,6 +9,7 @@ import nl.tudelft.core.GoalLexerAdapter;
 import nl.tudelft.core.language.psi.GOALType;
 import org.jetbrains.annotations.NotNull;
 
+import javax.xml.soap.Text;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +46,10 @@ public class GoalSyntaxHighlighter extends SyntaxHighlighterBase {
             TextAttributesKey.createTextAttributesKey("DOC_COMMENT",
                     DefaultLanguageHighlighterColors.DOC_COMMENT);
 
+    private static final TextAttributesKey ENV_VAR =
+            TextAttributesKey.createTextAttributesKey("ENVIRONMENT",
+                    DefaultLanguageHighlighterColors.PREDEFINED_SYMBOL);
+
     private static final TextAttributesKey[] KEYWORDS = new TextAttributesKey[] {KEYWORD};
     private static final TextAttributesKey[] STRINGS = new TextAttributesKey[] {STRING};
     private static final TextAttributesKey[] NUMBERS = new TextAttributesKey[] {NUMBER};
@@ -53,6 +58,7 @@ public class GoalSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final TextAttributesKey[] VARIABLES = new TextAttributesKey[] {VARIABLE};
     private static final TextAttributesKey[] COMMENTS = new TextAttributesKey[] {COMMENT};
     private static final TextAttributesKey[] DOC_COMMENTS = new TextAttributesKey[] {DOC_COMMENT};
+    private static final TextAttributesKey[] ENVIRONMENT = new TextAttributesKey[] {ENV_VAR};
     private static final TextAttributesKey[] EMPTY = new TextAttributesKey[0];
 
     @NotNull
@@ -73,13 +79,14 @@ public class GoalSyntaxHighlighter extends SyntaxHighlighterBase {
         MAPPING.put(GOALType.COMMENT, COMMENTS);
         MAPPING.put(GOALType.USE, KEYWORDS);
         MAPPING.put(GOALType.AS, KEYWORDS);
-        MAPPING.put(GOALType.ENVIRONMENT, KEYWORDS);
+        MAPPING.put(GOALType.ENVIRONMENT, ENVIRONMENT);
         MAPPING.put(GOALType.WITH, KEYWORDS);
         MAPPING.put(GOALType.DEFINE, KEYWORDS);
         MAPPING.put(GOALType.MODULE, KEYWORDS);
         MAPPING.put(GOALType.LAUNCHPOLICY, KEYWORDS);
         MAPPING.put(GOALType.WHEN, KEYWORDS);
         MAPPING.put(GOALType.LAUNCH, KEYWORDS);
+        MAPPING.put(GOALType.ID, VARIABLES);
 ////        MAPPING.put(GOALType.TYPE, KEYWORDS);
 ////        MAPPING.put(GOALType.NAME, KEYWORDS);
 //        MAPPING.put(GOALType.NUMBER, KEYWORDS);
