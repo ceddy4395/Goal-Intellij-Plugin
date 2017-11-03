@@ -1,0 +1,197 @@
+{
+  parserClass="nl.tudelft.core.language.mas.grammer.MasParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Mas"
+  psiImplClassSuffix="Impl"
+  psiPackage="nl.tudelft.core.language.mas.grammer.psi.iface"
+  psiImplPackage="nl.tudelft.core.language.mas.grammer.psi.impl"
+  psiImplUtilClass="nl.tudelft.core.language.mas.grammer.psi.impl.MasPsiUtilImpl"
+
+  elementTypeHolderClass="nl.tudelft.core.language.mas.grammer.MasTypes"
+  elementTypeClass="nl.tudelft.core.language.mas.grammer.MasElementType"
+  tokenTypeClass="nl.tudelft.core.language.mas.grammer.MasTokenType"
+
+  tokens= [
+USE = 'use'
+    AS = 'as'
+    IS = 'is'
+
+    MODULE = 'module'
+    TEST = 'test'
+    DEFINE = 'define'
+
+    ORDER = 'order'
+    EXIT = 'exit'
+    TIMEOUT = 'timeout'
+    FOCUS = 'focus'
+
+    ENVIRONMENT = 'environment'
+
+    BEL = 'bel'
+    PERCEPT = 'percept'
+    GOAL = 'goal'
+    GOALA = 'goal-a'
+    AGOAL = 'a-goal'
+    NOT = 'not'
+
+    TEST_COND = 'regexp:always|never|eventually'
+    LEADSTO = 'leadsto'
+    DONE = 'done'
+    UNTIL = 'until'
+
+    WITH = 'with'
+    PRE = 'pre'
+    IN = 'in'
+    POST = 'post'
+    TRUE = 'true'
+
+    IF = 'if'
+    THEN = 'then'
+    FORALL = 'forall'
+    DO = 'do'
+
+    SEND = 'send'
+    SENT = 'sent'
+
+    EXIT_MODULE = 'exit-module'
+
+    MODULE_BASIC_USAGE_VAL = 'regexp:actionspec|knowledge|beliefs|goals'
+    ORDER_VAL = 'regexp:linear|linearall|linearrandom|random|randomall|linearallrandom'
+    EXIT_VAL = 'regexp:nogoals|never|always'
+    FOCUS_VAL = 'regexp:none|new|select|filter'
+    MAIL_SELECTOR_VAL = 'regexp:all|allother|some|someother|self|this'
+
+    DOT = '.'
+    COMMA = ','
+    EQ = '='
+
+    OBRACKET = '['
+    CBRACKET = ']'
+    OPAREN = '('
+    CPAREN = ')'
+    OPEN_CURLY = '{'
+    CLOSE_CURLY = '}'
+
+    SEMI = ";"
+    BAR = "|"
+    IMPLIES = "->"
+    SOFT_IMPLIES = "*->"
+    NOT = "\+"
+    LT = "<"
+    UNIV = "=.."
+    VARIANT = "=@="
+    NOT_VARIANT = "\=@="
+    EVALUATES = "=:="
+    LEQ = "=<"
+    IDENTICAL = "=="
+    NOT_IDENTICAL = "=\="
+    GT = ">"
+    GE = ">="
+    GENERAL_LT = "@<"
+    GENERAL_LE = "@=<"
+    GENERAL_GT = "@>"
+    GENERAL_GE = "@>="
+    NOT_UNIFY = "\="
+    NOT_IDENTICAL = "\=="
+    PARTIAL_UNIFICATION = ">:<"
+    COLON = ':'
+    PLUS = '+'
+    MINUS = '-'
+    BITWISE_AND = '/\'
+    BITWISE_OR = '\/'
+    MULT = "*"
+    INT_DIV = "//"
+    BITSHIFT_LEFT = '<<'
+    BITSHIFT_RIGHT = '>>'
+    POW = '**'
+    POW2 = '^'
+    INV = '\'
+    SLASH = '/'
+
+    MOOD = "regexp:[:?!]"
+
+    INTEGER = "regexp:-?[0-9]+|0b[01]+|0o[0-7]+|0x[0-9A-Fa-f]+|[0-9]{1,2}'[0-9A-Za-z]+"
+    REAL = "regexp:-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"
+
+    SQSTRING = "regexp:'([^'\\]|\\.)*?'"
+    DQSTRING = 'regexp:"([^"\\]|\\.)*?"'
+
+    ATOM = "regexp:([a-z][A-Za-z0-9_]*)|('([^'\\]|\\.)*?')"
+
+    VARIABLE = "regexp:[A-Z_][A-Za-z0-9_]*"
+
+    space='regexp:\s+'
+    comment = 'regexp:%.*'
+
+     USE = 'use'
+    AS = 'as'
+    ENVIRONMENT = 'environment'
+    WITH = 'with'
+
+    DEFINE = 'define'
+    AGENT = 'agent'
+
+    OCURLY = '{'
+    CCURLY = '}'
+
+    MODULE = 'module'
+
+    LAUNCHPOLICY = 'launchpolicy'
+    WHEN = 'when'
+    LAUNCH = 'launch'
+
+    TYPE = 'type'
+    NAME = 'name'
+    MAX = 'max'
+    NUMBER = 'number'
+
+    EQ = '='
+    STAR = '*'
+    DOT = '.'
+    COMMA = ','
+
+    USE_CASE_VAL = 'regexp:init|event|main'
+    ID = 'regexp:[a-zA-Z_][a-zA-Z0-9_]*'
+
+    INTEGER = "regexp:-?[0-9]+|0b[01]+|0o[0-7]+|0x[0-9A-Fa-f]+|[0-9]{1,2}'[0-9A-Za-z]+"
+    REAL = "regexp:-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"
+
+    SQSTRING = "regexp:'([^'\\]|\\.)*?'"
+    DQSTRING = 'regexp:"([^"\\]|\\.)*?"'
+
+    LINE_COMMENT = 'regexp:%[^\r\n]*'
+
+  ]
+
+}
+
+root ::= LINE_COMMENT |  masFile
+
+masFile ::= environmentSpec? agentBlock+ launchPolicy
+
+environmentSpec ::= 'use' string 'as' 'environment' ('with' environmentPropertyList)? '.'
+environmentPropertyList ::= environmentProperty (',' environmentProperty)*
+environmentProperty ::= identifier '=' (identifier | numberLiteral)
+
+agentBlock ::= 'define' identifier 'as' 'agent {' useClause+ '}'
+
+useClause ::= 'use' moduleId 'as' useCase '.'
+useCase ::= USE_CASE_VAL 'module'?
+
+moduleId ::=  moduleString
+moduleString ::= simpleIdentifier ('.' simpleIdentifier)*
+
+launchPolicy ::= 'launchpolicy' '{' launchRule+ '}'
+launchRule ::= ('when' entity)? 'launch' instructionList '.'
+entity ::= '*' | ('type' '=' simpleIdentifier) | ('name' '=' simpleIdentifier)
+instructionList ::= instruction (',' instruction)*
+instruction ::= identifier ('with' constraintList)?
+constraintList ::= constraint (',' constraint)*
+constraint ::= ('name' '=' identifier) | ('number' '=' numberLiteral) | ('max' '=' numberLiteral)
+
+simpleIdentifier ::= ID
+identifier ::= ID | string | atom
+string ::= SQSTRING | DQSTRING
+numberLiteral ::= INTEGER | REAL
+

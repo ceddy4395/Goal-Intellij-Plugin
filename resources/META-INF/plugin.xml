@@ -27,10 +27,10 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
-      <fileTypeFactory implementation="nl.tudelft.core.file.FileFactory.GoalFileFactory"/>
-    <lang.parserDefinition language="Goal" implementationClass="nl.tudelft.core.RunConfiguration.GoalParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Goal" implementationClass="nl.tudelft.core.language.Syntax.GoalSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="nl.tudelft.core.language.Syntax.GoalColorSettingsPage"/>
+      <fileTypeFactory implementation="nl.tudelft.core.file.GoalFileFactory"/>
+
+    <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.grammer.MasParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.MasSyntaxHighlighterFactory"/>
     <!-- Add your extensions here -->
   </extensions>
 
