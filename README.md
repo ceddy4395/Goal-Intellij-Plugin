@@ -1,7 +1,7 @@
-# Goal-Intelij-Plugin
+# Goal-Intellij-Plugin
 
 ## Goal
-Goal is created at the TU Delft by the department of Artificial Inteligince. It is mainly used for Multi Agent Systems.
+Goal is created at the TU Delft by the department of Artificial Intelligence. It is mainly used for Multi Agent Systems.
 
 More documentation can be found at: http://bit.ly/GOALLanguage 
 
@@ -15,7 +15,6 @@ Then go to ``File -> Settings -> Plugins -> Install Plugin from Disk``, Select t
 The latest release can be found at: https://github.com/ceddy4395/Goal-Intellij-Plugin/releases/download/v0.1-Pre-Alpha/Goal-Intelij-Plugin.zip
 
 ## Development 
-
 ### Required plugins
 In order to be able to contribute to this repository, a couple of plugins are needed incuding: 
 - Plugin DevKit (This may already be downloaded but not yet enabled).
