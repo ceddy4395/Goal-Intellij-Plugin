@@ -37,7 +37,7 @@ public class ActionSpecPsiImplUtil {
     }
 
     public static PsiReference getReference(ActionSpecBasicTerm term) {
-        return GoalPsiUtilImpl.getReference()
+        return GoalPsiUtilImpl.getReference();
     }
 
 }
