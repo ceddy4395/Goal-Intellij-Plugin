@@ -1,10 +1,9 @@
 package nl.tudelft.core.language.mas.file;
 
-import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import nl.tudelft.core.Icons;
 import nl.tudelft.core.file.GoalFile;
-import nl.tudelft.core.language.GoalLanguage;
 import nl.tudelft.core.language.mas.MasLanguage;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,6 +27,6 @@ public class MAS2GFile extends GoalFile {
 
     @Override
     public Icon getIcon(int flags) {
-        return super.getIcon(flags);
+        return Icons.MAS2G;
     }
 }

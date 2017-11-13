@@ -93,7 +93,7 @@
 specification ::= useClause+ actionSpec+
 
 // Usage rules.
-useClause ::= USE fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
+useClause ::= 'use' fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
 usage ::= 'knowledge'
 fileReference ::= string | identifier
 

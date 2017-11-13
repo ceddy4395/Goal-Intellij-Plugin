@@ -67,6 +67,7 @@ public class PrologSyntaxHighlighter extends SyntaxHighlighterBase {
         MAP.put(PrologTypes.DIRECTIVE, KEYWORDS);
         MAP.put(PrologTypes.NECK, OPERATORS);
         MAP.put(PrologTypes.OPERATOR, OPERATORS);
+        MAP.put(PrologTypes.PREDICATE, VARIABLES);
 
         MAP.put(PrologTypes.STRING, STRINGS);
         MAP.put(PrologTypes.SQSTRING, STRINGS);

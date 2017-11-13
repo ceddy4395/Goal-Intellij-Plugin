@@ -2,6 +2,7 @@ package nl.tudelft.core.language.actionspec.file;
 
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import nl.tudelft.core.Icons;
 import nl.tudelft.core.file.GoalFile;
 import nl.tudelft.core.language.actionspec.ActionSpecLanguage;
 import org.jetbrains.annotations.NotNull;
@@ -21,11 +22,11 @@ public class ACT2GFile extends GoalFile {
 
     @Override
     public String toString() {
-        return "Multi-agent specification file";
+        return "Multi-agent action specification file";
     }
 
     @Override
     public Icon getIcon(int flags) {
-        return super.getIcon(flags);
+        return Icons.MOD2G;
     }
 }
