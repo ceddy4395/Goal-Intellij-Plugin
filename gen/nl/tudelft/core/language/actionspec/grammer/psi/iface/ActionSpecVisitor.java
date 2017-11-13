@@ -4,13 +4,6 @@ package nl.tudelft.core.language.actionspec.grammer.psi.iface;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
-import nl.tudelft.core.language.psi.iface.BasicTerm;
-import nl.tudelft.core.language.psi.iface.AtomIdentifier;
-import nl.tudelft.core.language.psi.iface.TermList;
-import nl.tudelft.core.language.psi.iface.UseClause;
-import nl.tudelft.core.language.psi.iface.Predicate;
-import nl.tudelft.core.language.FileReference;
-import nl.tudelft.core.language.psi.iface.Usage;
 
 public class ActionSpecVisitor extends PsiElementVisitor {
 
@@ -23,11 +16,11 @@ public class ActionSpecVisitor extends PsiElementVisitor {
   }
 
   public void visitAtomIdentifier(@NotNull ActionSpecAtomIdentifier o) {
-    visitAtomIdentifier(o);
+    visitPsiElement(o);
   }
 
   public void visitBasicTerm(@NotNull ActionSpecBasicTerm o) {
-    visitBasicTerm(o);
+    visitPsiElement(o);
   }
 
   public void visitCallable(@NotNull ActionSpecCallable o) {
@@ -35,7 +28,7 @@ public class ActionSpecVisitor extends PsiElementVisitor {
   }
 
   public void visitFileReference(@NotNull ActionSpecFileReference o) {
-    visitFileReference(o);
+    visitPsiElement(o);
   }
 
   public void visitIdentifier(@NotNull ActionSpecIdentifier o) {
@@ -55,7 +48,7 @@ public class ActionSpecVisitor extends PsiElementVisitor {
   }
 
   public void visitPredicate(@NotNull ActionSpecPredicate o) {
-    visitPredicate(o);
+    visitPsiElement(o);
   }
 
   public void visitString(@NotNull ActionSpecString o) {
@@ -67,15 +60,15 @@ public class ActionSpecVisitor extends PsiElementVisitor {
   }
 
   public void visitTermList(@NotNull ActionSpecTermList o) {
-    visitTermList(o);
+    visitPsiElement(o);
   }
 
   public void visitUsage(@NotNull ActionSpecUsage o) {
-    visitUsage(o);
+    visitPsiElement(o);
   }
 
   public void visitUseClause(@NotNull ActionSpecUseClause o) {
-    visitUseClause(o);
+    visitPsiElement(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

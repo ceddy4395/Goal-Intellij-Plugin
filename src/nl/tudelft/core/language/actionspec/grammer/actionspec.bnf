@@ -88,16 +88,6 @@
 
             LINE_COMMENT = 'regexp:%[^\r\n]*'
         ]
-
-    implements("useClause")="nl.tudelft.core.language.psi.iface.UseClause"
-    implements("fileReference")="nl.tudelft.core.language.FileReference"
-    implements("usage")="nl.tudelft.core.language.psi.iface.Usage"
-    implements("basicTerm")="nl.tudelft.core.language.psi.iface.BasicTerm"
-    implements("predicate")="nl.tudelft.core.language.psi.iface.Predicate"
-    implements("atomIdentifier")="nl.tudelft.core.language.psi.iface.AtomIdentifier"
-    implements("termList")="nl.tudelft.core.language.psi.iface.TermList"
-     extends("op_.*")=operator
-
 }
 
 specification ::= useClause+ actionSpec+
@@ -105,10 +95,10 @@ specification ::= useClause+ actionSpec+
 // Usage rules.
 useClause ::= 'use' fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
 usage ::= 'knowledge'
-fileReference ::= string | identifier {methods=[getReference]}
+fileReference ::= string | identifier
 
 // Clauses. Every file has different clauses.
-actionSpec ::= 'define' callable asClause? 'with' 'pre' '{' termList '}' 'post' '{' termList '}' {methods=[getName setName] pin=1 recoverWhile=recover_actionSpec}
+actionSpec ::= 'define' callable asClause? 'with' 'pre' '{' termList '}' 'post' '{' termList '}'
 asClause ::= 'as' ('internal' | 'external')
 
 // Callables.
@@ -121,7 +111,7 @@ predicate ::= atomIdentifier ['(' termList ')'] {methods=[getIdentifier asPredic
 
 // Term
 termList ::= term (',' term)* {name=term}
-basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list | TRUE {name=term methods=[getReference]}
+basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list | TRUE
 private nakedTerm ::= basicTerm (binaryOperator basicTerm)+ | prefixOperator+ basicTerm+ | basicTerm {name=term}
 private enclosedTerm ::= '(' nakedTerm ')' {name=term pin='('}
 term ::= enclosedTerm | nakedTerm
@@ -130,7 +120,7 @@ list ::= '[' termList ']' {pin='['}
 
 // Misc. syntax rules.
 string ::= DQSTRING | SQSTRING
-identifier ::= ATOM | VARIABLE {methods=[getName setName]}
+identifier ::= ATOM | VARIABLE
 atomIdentifier ::= ATOM
 
 // <>:<> OPERATORS! <>:<>

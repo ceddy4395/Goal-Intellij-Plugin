@@ -33,9 +33,9 @@ public class ActionSpecActionSpecImpl extends ASTWrapperPsiElement implements Ac
   }
 
   @Override
-  @Nullable
+  @NotNull
   public ActionSpecCallable getCallable() {
-    return findChildByClass(ActionSpecCallable.class);
+    return findNotNullChildByClass(ActionSpecCallable.class);
   }
 
   @Override

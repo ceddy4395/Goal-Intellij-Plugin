@@ -4,9 +4,8 @@ package nl.tudelft.core.language.actionspec.grammer.psi.iface;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import nl.tudelft.core.language.psi.iface.BasicTerm;
 
-public interface ActionSpecBasicTerm extends BasicTerm {
+public interface ActionSpecBasicTerm extends PsiElement {
 
   @Nullable
   ActionSpecList getList();
@@ -25,9 +24,5 @@ public interface ActionSpecBasicTerm extends BasicTerm {
 
   @Nullable
   PsiElement getVariable();
-
-  //WARNING: getReference(...) is skipped
-  //matching getReference(ActionSpecBasicTerm, ...)
-  //methods are not found in MasPsiUtilImpl
 
 }

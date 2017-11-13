@@ -85,19 +85,19 @@ public class ActionSpecParser implements PsiParser, LightPsiParser {
   // 'define' callable asClause? 'with' 'pre' '{' termList '}' 'post' '{' termList '}'
   public static boolean actionSpec(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "actionSpec")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, ACTION_SPEC, "<action spec>");
+    if (!nextTokenIs(b, DEFINE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, DEFINE);
-    p = r; // pin = 1
-    r = r && report_error_(b, callable(b, l + 1));
-    r = p && report_error_(b, actionSpec_2(b, l + 1)) && r;
-    r = p && report_error_(b, consumeTokens(b, -1, WITH, PRE, OPEN_CURLY)) && r;
-    r = p && report_error_(b, termList(b, l + 1)) && r;
-    r = p && report_error_(b, consumeTokens(b, -1, CLOSE_CURLY, POST, OPEN_CURLY)) && r;
-    r = p && report_error_(b, termList(b, l + 1)) && r;
-    r = p && consumeToken(b, CLOSE_CURLY) && r;
-    exit_section_(b, l, m, r, p, recover_actionSpec_parser_);
-    return r || p;
+    r = r && callable(b, l + 1);
+    r = r && actionSpec_2(b, l + 1);
+    r = r && consumeTokens(b, 0, WITH, PRE, OPEN_CURLY);
+    r = r && termList(b, l + 1);
+    r = r && consumeTokens(b, 0, CLOSE_CURLY, POST, OPEN_CURLY);
+    r = r && termList(b, l + 1);
+    r = r && consumeToken(b, CLOSE_CURLY);
+    exit_section_(b, m, ACTION_SPEC, r);
+    return r;
   }
 
   // asClause?
@@ -148,7 +148,7 @@ public class ActionSpecParser implements PsiParser, LightPsiParser {
   public static boolean basicTerm(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "basicTerm")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, BASIC_TERM, "<term>");
+    Marker m = enter_section_(b, l, _NONE_, BASIC_TERM, "<basic term>");
     r = predicate(b, l + 1);
     if (!r) r = consumeToken(b, VARIABLE);
     if (!r) r = number(b, l + 1);
@@ -898,11 +898,6 @@ public class ActionSpecParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  final static Parser recover_actionSpec_parser_ = new Parser() {
-    public boolean parse(PsiBuilder b, int l) {
-      return recover_actionSpec(b, l + 1);
-    }
-  };
   final static Parser recover_topClause_parser_ = new Parser() {
     public boolean parse(PsiBuilder b, int l) {
       return recover_topClause(b, l + 1);

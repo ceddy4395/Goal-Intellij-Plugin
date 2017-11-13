@@ -3,6 +3,7 @@ package nl.tudelft.core.language.actionspec.file;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import nl.tudelft.core.Icons;
 import nl.tudelft.core.language.GoalLanguage;
+import nl.tudelft.core.language.actionspec.ActionSpecLanguage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,7 +17,7 @@ public class ACT2GFileType extends LanguageFileType {
      * Creates a language file type for the specified language.
      */
     private ACT2GFileType() {
-        super(GoalLanguage.instance);
+        super(ActionSpecLanguage.INSTANCE);
     }
 
     @NotNull

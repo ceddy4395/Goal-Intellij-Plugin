@@ -13,12 +13,4 @@ public interface ActionSpecIdentifier extends PsiElement {
   @Nullable
   PsiElement getVariable();
 
-  //WARNING: getName(...) is skipped
-  //matching getName(ActionSpecIdentifier, ...)
-  //methods are not found in MasPsiUtilImpl
-
-  //WARNING: setName(...) is skipped
-  //matching setName(ActionSpecIdentifier, ...)
-  //methods are not found in MasPsiUtilImpl
-
 }

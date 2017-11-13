@@ -10,7 +10,6 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static nl.tudelft.core.language.prolog.grammer.PrologTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import nl.tudelft.core.language.prolog.grammer.psi.iface.*;
-import nl.tudelft.core.language.PredicateIdentity;
 
 public class PrologPredicateImpl extends ASTWrapperPsiElement implements PrologPredicate {
 
@@ -37,10 +36,6 @@ public class PrologPredicateImpl extends ASTWrapperPsiElement implements PrologP
   @NotNull
   public PsiElement getAtom() {
     return findNotNullChildByType(ATOM);
-  }
-
-  public PredicateIdentity asPredicate() {
-    return PrologPsiImplUtil.asPredicate(this);
   }
 
 }
