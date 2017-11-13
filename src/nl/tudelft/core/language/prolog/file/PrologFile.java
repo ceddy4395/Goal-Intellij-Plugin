@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Created by Cedric Willekens (4530373) on 11/3/2017.
  */
 public class PrologFile extends PsiFileBase {
-    protected PrologFile(@NotNull FileViewProvider viewProvider) {
+    public PrologFile(@NotNull FileViewProvider viewProvider) {
         super(viewProvider, PrologLanguage.INSTANCE);
     }
 

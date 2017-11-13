@@ -31,6 +31,10 @@
 
     <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.grammer.MasParserDefinition"/>
     <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.MasSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.core.language.prolog.grammer.PrologParserDefinition"/>
+
+
     <!-- Add your extensions here -->
   </extensions>
 
