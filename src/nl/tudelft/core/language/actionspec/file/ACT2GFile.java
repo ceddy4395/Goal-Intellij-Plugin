@@ -1,29 +1,31 @@
 package nl.tudelft.core.language.actionspec.file;
 
+import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import nl.tudelft.core.file.GoalFile;
 import nl.tudelft.core.language.actionspec.ActionSpecLanguage;
-import nl.tudelft.core.language.actionspec.grammer.psi.iface.ActionSpecActionSpec;
-import nl.tudelft.core.language.actionspec.grammer.psi.iface.ActionSpecUseClause;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.swing.*;
 
 public class ACT2GFile extends GoalFile {
-    protected ACT2GFile(@NotNull FileViewProvider viewProvider) {
+    public ACT2GFile(@NotNull FileViewProvider viewProvider) {
         super(viewProvider, ActionSpecLanguage.INSTANCE);
     }
 
-    public List<ActionSpecUseClause> getUseClauses() {
-        return Arrays.asList(this.findChildrenByClass(ActionSpecUseClause.class));
+    @NotNull
+    @Override
+    public FileType getFileType() {
+        return ACT2GFileType.INSTANCE;
     }
 
-    public List<ActionSpecActionSpec> getActionSpecs() {
-        return Arrays.asList(this.findChildrenByClass(ActionSpecActionSpec.class));
+    @Override
+    public String toString() {
+        return "Multi-agent specification file";
     }
 
-    public ActionSpecActionSpec getActionSpec() {
-        return this.findChildByClass(ActionSpecActionSpec.class);
+    @Override
+    public Icon getIcon(int flags) {
+        return super.getIcon(flags);
     }
 }

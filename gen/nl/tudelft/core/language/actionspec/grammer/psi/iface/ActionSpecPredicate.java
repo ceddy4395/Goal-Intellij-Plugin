@@ -13,12 +13,4 @@ public interface ActionSpecPredicate extends PsiElement {
   @Nullable
   ActionSpecTermList getTermList();
 
-  //WARNING: getIdentifier(...) is skipped
-  //matching getIdentifier(ActionSpecPredicate, ...)
-  //methods are not found in MasPsiUtilImpl
-
-  //WARNING: asPredicate(...) is skipped
-  //matching asPredicate(ActionSpecPredicate, ...)
-  //methods are not found in MasPsiUtilImpl
-
 }

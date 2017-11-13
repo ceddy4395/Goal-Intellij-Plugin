@@ -35,6 +35,8 @@
     <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.core.language.prolog.grammer.PrologParserDefinition"/>
     <lang.syntaxHighlighterFactory language="Prolog" implementationClass="nl.tudelft.core.language.prolog.PrologSyntaxHighlighterFactory"/>
 
+    <lang.parserDefinition language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.ActionSpecSyntaxHighlighterFactory"/>
     <!-- Add your extensions here -->
   </extensions>
 

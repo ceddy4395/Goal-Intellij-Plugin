@@ -866,7 +866,7 @@ public class ActionSpecParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // 'use' fileReference ('as' usage)? '.'
+  // USE fileReference ('as' usage)? '.'
   public static boolean useClause(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useClause")) return false;
     boolean r, p;

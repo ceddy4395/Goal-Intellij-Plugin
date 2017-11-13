@@ -6,7 +6,7 @@
     psiImplClassSuffix="Impl"
     psiPackage="nl.tudelft.core.language.actionspec.grammer.psi.iface"
     psiImplPackage="nl.tudelft.core.language.actionspec.grammer.psi.impl"
-    psiImplUtilClass="nl.tudelft.core.language.actionspec.grammer.psi.impl.MasPsiUtilImpl"
+    psiImplUtilClass="nl.tudelft.core.language.actionspec.grammer.psi.impl.ActionSpecActionSpecImpl"
 
     elementTypeHolderClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecTypes"
     elementTypeClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecElementType"
@@ -93,7 +93,7 @@
 specification ::= useClause+ actionSpec+
 
 // Usage rules.
-useClause ::= 'use' fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
+useClause ::= USE fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
 usage ::= 'knowledge'
 fileReference ::= string | identifier
 
@@ -107,7 +107,7 @@ private complexCallable ::= identifier '(' parameters ')' {pin='('}
 private parameters ::= VARIABLE ',' parameters | VARIABLE
 
 // Predicate
-predicate ::= atomIdentifier ['(' termList ')'] {methods=[getIdentifier asPredicate]}
+predicate ::= atomIdentifier ['(' termList ')']
 
 // Term
 termList ::= term (',' term)* {name=term}

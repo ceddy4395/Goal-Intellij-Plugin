@@ -11,6 +11,10 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
+import nl.tudelft.core.language.actionspec.ActionSpecLanguage;
+import nl.tudelft.core.language.actionspec.file.ACT2GFile;
+import nl.tudelft.core.language.mas.grammer.MasTypes;
+import org.apache.xmlbeans.xml.stream.Space;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -19,54 +23,58 @@ import org.jetbrains.annotations.NotNull;
 public class ActionSpecParserDefinition implements ParserDefinition {
 
     private static final TokenSet WHITESPACE = TokenSet.create(TokenType.WHITE_SPACE);
+    private static final TokenSet COMMENTS = TokenSet.create(ActionSpecTypes.LINE_COMMENT);
+    private static final TokenSet STRINGS = TokenSet.create(ActionSpecTypes.SQSTRING, ActionSpecTypes.DQSTRING);
+
+    private static final IFileElementType FILE = new IFileElementType(ActionSpecLanguage.INSTANCE);
 
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        return null;
+        return new ActionSpecLexerAdapter();
     }
 
     @Override
     public PsiParser createParser(Project project) {
-        return null;
+        return new ActionSpecParser();
     }
 
     @Override
     public IFileElementType getFileNodeType() {
-        return null;
+        return FILE;
     }
 
     @NotNull
     @Override
     public TokenSet getWhitespaceTokens() {
-        return null;
+        return WHITESPACE;
     }
 
     @NotNull
     @Override
     public TokenSet getCommentTokens() {
-        return null;
+        return COMMENTS;
     }
 
     @NotNull
     @Override
     public TokenSet getStringLiteralElements() {
-        return null;
+        return STRINGS;
     }
 
     @NotNull
     @Override
     public PsiElement createElement(ASTNode node) {
-        return null;
+        return ActionSpecTypes.Factory.createElement(node);
     }
 
     @Override
     public PsiFile createFile(FileViewProvider viewProvider) {
-        return null;
+        return new ACT2GFile(viewProvider);
     }
 
     @Override
     public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right) {
-        return null;
+        return SpaceRequirements.MAY;
     }
 }
