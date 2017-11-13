@@ -13,8 +13,4 @@ public interface PrologPredicateSpec extends PsiElement {
   @NotNull
   PsiElement getInteger();
 
-  //WARNING: asPredicate(...) is skipped
-  //matching asPredicate(PrologPredicateSpec, ...)
-  //methods are not found in PrologPsiImplUtil
-
 }

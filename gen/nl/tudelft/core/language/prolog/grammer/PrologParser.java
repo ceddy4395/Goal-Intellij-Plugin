@@ -592,13 +592,12 @@ public class PrologParser implements PsiParser, LightPsiParser {
   public static boolean predicate(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "predicate")) return false;
     if (!nextTokenIs(b, ATOM)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, PREDICATE, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, ATOM);
-    p = r; // pin = 1
     r = r && predicate_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    exit_section_(b, m, PREDICATE, r);
+    return r;
   }
 
   // ['(' termList ')']
@@ -611,14 +610,13 @@ public class PrologParser implements PsiParser, LightPsiParser {
   // '(' termList ')'
   private static boolean predicate_1_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "predicate_1_0")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, OPAREN);
-    p = r; // pin = 1
-    r = r && report_error_(b, termList(b, l + 1));
-    r = p && consumeToken(b, CPAREN) && r;
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    r = r && termList(b, l + 1);
+    r = r && consumeToken(b, CPAREN);
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   /* ********************************************************** */

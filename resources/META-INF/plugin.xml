@@ -33,7 +33,7 @@
     <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.MasSyntaxHighlighterFactory"/>
 
     <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.core.language.prolog.grammer.PrologParserDefinition"/>
-
+    <lang.syntaxHighlighterFactory language="Prolog" implementationClass="nl.tudelft.core.language.prolog.PrologSyntaxHighlighterFactory"/>
 
     <!-- Add your extensions here -->
   </extensions>

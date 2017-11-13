@@ -13,8 +13,4 @@ public interface PrologPredicate extends PsiElement {
   @NotNull
   PsiElement getAtom();
 
-  //WARNING: asPredicate(...) is skipped
-  //matching asPredicate(PrologPredicate, ...)
-  //methods are not found in PrologPsiImplUtil
-
 }

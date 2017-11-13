@@ -92,7 +92,7 @@ prologFile ::= (directiveClause | clause) *
 // Directives, i.e. lines like :- dynamic friendly/3.
 directiveClause ::= ':-' DIRECTIVE predicateSpecList '.' {pin=1 recoverWhile=recover_clause}
 private predicateSpecList ::= predicateSpec (',' predicateSpec)*
-predicateSpec ::= ATOM '/' INTEGER {methods=[asPredicate]}
+predicateSpec ::= ATOM '/' INTEGER
 
 // The usual Prolog stuff.
 clause ::= (rule | fact) '.' {pin=2 recoverWhile=recover_clause}
@@ -101,7 +101,7 @@ private fact ::= predicate
 
 string ::= DQSTRING | SQSTRING
 
-predicate ::= ATOM ['(' termList ')'] {pin(".*")=1 methods=[asPredicate]}
+predicate ::= ATOM ['(' termList ')']
 
 termList ::=  term (',' term)* {name=term}
 private basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list | '!' {name=term}
