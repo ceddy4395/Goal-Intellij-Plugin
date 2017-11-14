@@ -1,17 +1,23 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <id>nl.tudelft.intelligoal</id>
+  <name>IntelliGoal</name>
+  <version>0.2</version>
+  <vendor email="c.s.willekens@student.tudelft.nl" url="ceddy4395.github.io"></vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      The plugin to develop Multi-Agent systems using GOAL. <br>
+      This project is open sourced and can be found at: https://github.com/ceddy4395/Goal-Intellij-Plugin <br>
+      Please report any bugs to c.s.willekens@student.tudelft.nl
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+        <li>Add syntax highlighting to mod2g files</li>
+        <li>Add syntax highligthing to mas2g files</li>
+        <li>Add syntax highlighting to test2g files</li>
+        <li>Add syntax highlighting to act2g files</li>
+        <li>Add grammar to the mod2g files</li>
+        <li>Add grammar to the mas2g files</li>
+        <li>Add grammar to the act2g files</li>
     ]]>
   </change-notes>
 
@@ -27,27 +33,27 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
-      <fileTypeFactory implementation="nl.tudelft.core.file.GoalFileFactory"/>
+      <fileTypeFactory implementation="nl.tudelft.intelligoal.core.file.GoalFileFactory"/>
 
-    <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.grammer.MasParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.MasSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.intelligoal.core.language.mas.grammer.MasParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.intelligoal.core.language.mas.MasSyntaxHighlighterFactory"/>
 
-    <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.core.language.prolog.grammer.PrologParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Prolog" implementationClass="nl.tudelft.core.language.prolog.PrologSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Prolog" implementationClass="nl.tudelft.intelligoal.core.language.prolog.PrologSyntaxHighlighterFactory"/>
 
-    <lang.parserDefinition language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.ActionSpecSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="GOAL actionspec" implementationClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL actionspec" implementationClass="nl.tudelft.intelligoal.core.language.actionspec.ActionSpecSyntaxHighlighterFactory"/>
 
-    <lang.parserDefinition language="Goal Module" implementationClass="nl.tudelft.core.language.module.grammer.ModuleParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.core.language.module.ModuleSyntaxHighligtherFactory"/>
+    <lang.parserDefinition language="Goal Module" implementationClass="nl.tudelft.intelligoal.core.language.module.grammer.ModuleParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.intelligoal.core.language.module.ModuleSyntaxHighligtherFactory"/>
 
-    <lang.parserDefinition language="GOAL Test" implementationClass="nl.tudelft.core.language.test.grammer.TestParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="GOAL Test" implementationClass="nl.tudelft.core.language.test.TestSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="GOAL Test" implementationClass="nl.tudelft.intelligoal.core.language.test.grammer.TestParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL Test" implementationClass="nl.tudelft.intelligoal.core.language.test.TestSyntaxHighlighterFactory"/>
     <!-- Add your extensions here -->
   </extensions>
 
   <extensions defaultExtensionNs="com.intellij">
-    <configurationType implementation="nl.tudelft.core.RunConfiguration.GoalRunConfigurationType"/>
+    <configurationType implementation="nl.tudelft.intelligoal.core.RunConfiguration.GoalRunConfigurationType"/>
   </extensions>
 
   <actions>

@@ -1,0 +1,172 @@
+{
+    parserClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="ActionSpec"
+    psiImplClassSuffix="Impl"
+    psiPackage="nl.tudelft.core.language.actionspec.grammer.psi.iface"
+    psiImplPackage="nl.tudelft.core.language.actionspec.grammer.psi.impl"
+    psiImplUtilClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecActionSpecImpl"
+
+    elementTypeHolderClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecTypes"
+    elementTypeClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecElementType"
+    tokenTypeClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecTokenType"
+
+     tokens = [
+            USE = 'use'
+            AS = 'as'
+            KNOWLEDGE = 'knowledge'
+
+            DEFINE = 'define'
+            WITH = 'with'
+            PRE = 'pre'
+            POST = 'post'
+
+            NOT = 'not'
+            TRUE = 'true'
+
+            IS = 'is'
+
+            OBRACKET = '['
+            CBRACKET = ']'
+            OPAREN = '('
+            CPAREN = ')'
+            OPEN_CURLY = '{'
+            CLOSE_CURLY = '}'
+
+            SEMI = ";"
+            BAR = "|"
+            IMPLIES = "->"
+            SOFT_IMPLIES = "*->"
+            NOT = "\+"
+            LT = "<"
+            EQ = '='
+            UNIV = "=.."
+            VARIANT = "=@="
+            NOT_VARIANT = "\=@="
+            EVALUATES = "=:="
+            LEQ = "=<"
+            IDENTICAL = "=="
+            NOT_IDENTICAL = "=\="
+            GT = ">"
+            GE = ">="
+            GENERAL_LT = "@<"
+            GENERAL_LE = "@=<"
+            GENERAL_GT = "@>"
+            GENERAL_GE = "@>="
+            NOT_UNIFY = "\="
+            NOT_IDENTICAL = "\=="
+            PARTIAL_UNIFICATION = ">:<"
+            COLON = ':'
+            PLUS = '+'
+            MINUS = '-'
+            BITWISE_AND = '/\'
+            BITWISE_OR = '\/'
+            MULT = "*"
+            INT_DIV = "//"
+            BITSHIFT_LEFT = '<<'
+            BITSHIFT_RIGHT = '>>'
+            POW = '**'
+            POW2 = '^'
+            INV = '\'
+            SLASH = '/'
+
+            DOT = '.'
+            COMMA = ','
+
+            ACTION_USE_CASE_VAL = 'regexp:internal|external'
+
+            INTEGER = "regexp:-?[0-9]+|0b[01]+|0o[0-7]+|0x[0-9A-Fa-f]+|[0-9]{1,2}'[0-9A-Za-z]+"
+            REAL = "regexp:-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"
+
+            SQSTRING = "regexp:'([^'\\]|\\.)*?'"
+            DQSTRING = 'regexp:"([^"\\]|\\.)*?"'
+
+            ATOM = "regexp:([a-z][A-Za-z0-9_]*)|('([^'\\]|\\.)*?')"
+
+            VARIABLE = "regexp:[A-Z_][A-Za-z0-9_]*"
+
+            LINE_COMMENT = 'regexp:%[^\r\n]*'
+        ]
+}
+
+specification ::= useClause+ actionSpec+
+
+// Usage rules.
+useClause ::= 'use' fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
+usage ::= 'knowledge'
+fileReference ::= string | identifier
+
+// Clauses. Every file has different clauses.
+actionSpec ::= 'define' callable asClause? 'with' 'pre' '{' termList '}' 'post' '{' termList '}'
+asClause ::= 'as' ('internal' | 'external')
+
+// Callables.
+callable ::= complexCallable | identifier
+private complexCallable ::= identifier '(' parameters ')' {pin='('}
+private parameters ::= VARIABLE ',' parameters | VARIABLE
+
+// Predicate
+predicate ::= atomIdentifier ['(' termList ')']
+
+// Term
+termList ::= term (',' term)* {name=term}
+basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list | TRUE
+private nakedTerm ::= basicTerm (binaryOperator basicTerm)+ | prefixOperator+ basicTerm+ | basicTerm {name=term}
+private enclosedTerm ::= '(' nakedTerm ')' {name=term pin='('}
+term ::= enclosedTerm | nakedTerm
+number ::= INTEGER | REAL
+list ::= '[' termList ']' {pin='['}
+
+// Misc. syntax rules.
+string ::= DQSTRING | SQSTRING
+identifier ::= ATOM | VARIABLE
+atomIdentifier ::= ATOM
+
+// <>:<> OPERATORS! <>:<>
+private op_disjunction ::= ";"
+private op_bar ::= "|"
+private op_implies ::= "->"
+private op_soft_implies ::= "*->"
+private op_not ::= "\+"
+private op_lt ::= "<"
+private op_unify ::= "="
+private op_univ ::= "=.."
+private op_variant ::= "=@="
+private op_not_variant ::= "\=@="
+private op_evaluates ::= "=:="
+private op_leq ::= "=<"
+private op_identical ::= "=="
+private op_not_identical ::= "=\="
+private op_gt ::= ">"
+private op_ge ::= ">="
+private op_general_lt ::= "@<"
+private op_general_le ::= "@=<"
+private op_general_gt ::= "@>"
+private op_general_ge ::= "@>="
+private op_not_unify ::= "\="
+private op_not_identical2 ::= "\=="
+private op_partial_unification ::= ">:<"
+private op_colon ::= ':'
+private op_plus ::= '+'
+private op_minus ::= '-'
+private op_bitwise_and ::= '/\'
+private op_bitwise_or ::= '\/'
+private op_mult ::= "*"
+private op_int_div ::= "//"
+private op_bitshift_left ::= '<<'
+private op_bitshift_right ::= '>>'
+private op_pow ::= '**'
+private op_pow2 ::= '^'
+private op_inv ::= '\'
+private op_as ::= 'as'
+private op_is ::= 'is'
+private op_div ::= '/'
+
+operator ::= binaryOperator | prefixOperator
+private binaryOperator ::= op_disjunction | op_bar | op_implies | op_soft_implies | op_lt | op_unify | op_univ | op_variant | op_not_variant | op_evaluates | op_leq | op_identical | op_not_identical | op_gt | op_ge | op_general_lt | op_general_le | op_general_gt | op_general_ge | op_not_unify | op_partial_unification | op_colon | op_plus | op_minus | op_bitwise_and | op_bitwise_or | op_mult | op_div | op_int_div | op_bitshift_left | op_bitshift_right | op_pow | op_pow2 | op_as | op_not_identical2 | ATOM {name=operator}
+private prefixOperator ::= op_plus | op_minus | op_not {name=operator}
+
+// Recovery.
+private recover_actionSpec ::= !('define')
+private recover_topClause ::= !('use'|'define')
