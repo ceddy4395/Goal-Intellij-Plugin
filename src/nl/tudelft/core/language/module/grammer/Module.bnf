@@ -9,8 +9,8 @@
     psiImplUtilClass = "nl.tudelft.core.language.module.grammer.psi.impl.ModulePsiUtilImpl"
 
     elementTypeHolderClass = "nl.tudelft.core.language.module.grammer.ModuleTypes"
-    elementTypeClass = "nl.tudelft.core.language.module.grammar.ModuleElementType"
-    tokenTypeClass = "nl.tudelft.core.language.module.grammar.ModuleTokenType"
+    elementTypeClass = "nl.tudelft.core.language.module.grammer.ModuleElementType"
+    tokenTypeClass = "nl.tudelft.core.language.module.grammer.ModuleTokenType"
 
     tokens = [
         USE = 'use'

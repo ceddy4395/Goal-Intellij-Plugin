@@ -1,4 +1,4 @@
-package nl.tudelft.core.language.module.grammar;
+package nl.tudelft.core.language.module.grammer;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;

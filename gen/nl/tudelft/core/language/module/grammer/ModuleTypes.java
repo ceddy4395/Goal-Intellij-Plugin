@@ -4,8 +4,6 @@ package nl.tudelft.core.language.module.grammer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import nl.tudelft.core.language.module.grammar.ModuleElementType;
-import nl.tudelft.core.language.module.grammar.ModuleTokenType;
 import nl.tudelft.core.language.module.grammer.psi.impl.*;
 
 public interface ModuleTypes {

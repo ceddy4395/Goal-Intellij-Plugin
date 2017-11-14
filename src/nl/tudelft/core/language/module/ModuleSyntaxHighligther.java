@@ -5,7 +5,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
-import nl.tudelft.core.language.module.grammar.ModuleLexerAdapter;
+import nl.tudelft.core.language.module.grammer.ModuleLexerAdapter;
 import nl.tudelft.core.language.module.grammer.ModuleTypes;
 import org.jetbrains.annotations.NotNull;
 
