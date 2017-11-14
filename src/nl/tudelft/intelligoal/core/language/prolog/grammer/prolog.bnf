@@ -1,0 +1,162 @@
+{
+    parserClass = "nl.tudelft.intelligoal.core.language.prolog.grammer.PrologParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="Prolog"
+    psiImplClassSuffix="Impl"
+    psiPackage="nl.tudelft.core.language.prolog.grammer.psi.iface"
+    psiImplPackage="nl.tudelft.core.language.prolog.grammer.psi.impl"
+    psiImplUtilClass="nl.tudelft.core.language.prolog.grammer.psi.impl.PrologPsiImplUtil"
+
+    elementTypeHolderClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologTypes"
+    elementTypeClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologElementType"
+    tokenTypeClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologTokenType"
+
+tokens = [
+        DCG = "-->"
+        NECK = ":-"
+        SLASH = '/'
+
+        DOT = '.'
+        COMMA = ','
+
+        OBRACKET = '['
+        CBRACKET = ']'
+        OPAREN = '('
+        CPAREN = ')'
+
+        SEMI = ";"
+        BAR = "|"
+        IMPLIES = "->"
+        SOFT_IMPLIES = "*->"
+        NOT = "\+"
+        LT = "<"
+        UNIFY = "="
+        UNIV = "=.."
+        VARIANT = "=@="
+        NOT_VARIANT = "\=@="
+        EVALUATES = "=:="
+        LEQ = "=<"
+        IDENTICAL = "=="
+        NOT_IDENTICAL = "=\="
+        GT = ">"
+        GE = ">="
+        GENERAL_LT = "@<"
+        GENERAL_LE = "@=<"
+        GENERAL_GT = "@>"
+        GENERAL_GE = "@>="
+        NOT_UNIFY = "\="
+        NOT_IDENTICAL = "\=="
+        PARTIAL_UNIFICATION = ">:<"
+        COLON = ':'
+        PLUS = '+'
+        MINUS = '-'
+        BITWISE_AND = '/\'
+        BITWISE_OR = '\/'
+        MULT = "*"
+        INT_DIV = "//"
+        BITSHIFT_LEFT = '<<'
+        BITSHIFT_RIGHT = '>>'
+        POW = '**'
+        POW2 = '^'
+        INV = '\'
+
+        CUT = '!'
+
+        AS = "as"
+        IS = "is"
+
+        DIRECTIVE = "regexp:dynamic|discontiguous|initialization|meta_predicate|module_transparent|multifile|public|thread_local|thread_initialization|volatile"
+
+        INTEGER = "regexp:-?[0-9]+|0b[01]+|0o[0-7]+|0x[0-9A-Fa-f]+|[0-9]{1,2}'[0-9A-Za-z]+"
+        REAL = "regexp:-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"
+
+        SQSTRING = "regexp:'([^'\\]|\\.)*?'"
+        DQSTRING = 'regexp:"([^"\\]|\\.)*?"'
+
+        ATOM = "regexp:([a-z][A-Za-z0-9_]*)|('([^'\\]|\\.)*?')"
+
+        VARIABLE = "regexp:[A-Z_][A-Za-z0-9_]*"
+
+        eol = 'regexp:\r?\n'
+        space = 'regexp:\s+'
+        doc_comment = 'regexp:%\s*\[[^\r\n]*'
+        line_comment = 'regexp:%\s*[^\[][^\r\n]*'
+    ]
+
+    extends("op_.*")=operator
+}
+
+prologFile ::= (directiveClause | clause) *
+
+// Directives, i.e. lines like :- dynamic friendly/3.
+directiveClause ::= ':-' DIRECTIVE predicateSpecList '.' {pin=1 recoverWhile=recover_clause}
+private predicateSpecList ::= predicateSpec (',' predicateSpec)*
+predicateSpec ::= ATOM '/' INTEGER
+
+// The usual Prolog stuff.
+clause ::= (rule | fact) '.' {pin=2 recoverWhile=recover_clause}
+private rule ::= predicate ':-' termList {pin=2}
+private fact ::= predicate
+
+string ::= DQSTRING | SQSTRING
+
+predicate ::= ATOM ['(' termList ')']
+
+termList ::=  term (',' term)* {name=term}
+private basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list | '!' {name=term}
+private nakedTerm ::= basicTerm (binaryOperator basicTerm)+ | prefixOperator+ basicTerm+ | basicTerm {name=term}
+private enclosedTerm ::= '(' nakedTerm ')' {name=term}
+term ::= enclosedTerm | nakedTerm
+number ::= INTEGER | REAL
+list ::= '[' termList ']'
+
+variableList ::= VARIABLE (',' VARIABLE)*
+callable ::= ATOM '(' variableList ')' | ATOM
+
+private op_disjunction ::= ";"
+private op_bar ::= "|"
+private op_implies ::= "->"
+private op_soft_implies ::= "*->"
+private op_not ::= "\+"
+private op_lt ::= "<"
+private op_unify ::= "="
+private op_univ ::= "=.."
+private op_variant ::= "=@="
+private op_not_variant ::= "\=@="
+private op_evaluates ::= "=:="
+private op_leq ::= "=<"
+private op_identical ::= "=="
+private op_not_identical ::= "=\="
+private op_gt ::= ">"
+private op_ge ::= ">="
+private op_general_lt ::= "@<"
+private op_general_le ::= "@=<"
+private op_general_gt ::= "@>"
+private op_general_ge ::= "@>="
+private op_not_unify ::= "\="
+private op_not_identical2 ::= "\=="
+private op_partial_unification ::= ">:<"
+private op_colon ::= ':'
+private op_plus ::= '+'
+private op_minus ::= '-'
+private op_bitwise_and ::= '/\'
+private op_bitwise_or ::= '\/'
+private op_mult ::= "*"
+private op_int_div ::= "//"
+private op_bitshift_left ::= '<<'
+private op_bitshift_right ::= '>>'
+private op_pow ::= '**'
+private op_pow2 ::= '^'
+private op_inv ::= '\'
+private op_as ::= 'as'
+private op_is ::= 'is'
+private op_div ::= '/'
+
+operator ::= binaryOperator | prefixOperator
+private binaryOperator ::= op_disjunction | op_bar | op_implies | op_soft_implies | op_lt | op_unify | op_univ | op_variant | op_not_variant | op_evaluates | op_leq | op_identical | op_not_identical | op_gt | op_ge | op_general_lt | op_general_le | op_general_gt | op_general_ge | op_not_unify | op_partial_unification | op_colon | op_plus | op_minus | op_bitwise_and | op_bitwise_or | op_mult | op_div | op_int_div | op_bitshift_left | op_bitshift_right | op_pow | op_pow2 | op_as | op_is | op_not_identical2
+private prefixOperator ::= op_plus | op_minus | op_not
+
+// Recovery clauses.
+private recover_clause ::= !(clause|directiveClause)
+
