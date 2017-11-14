@@ -5,6 +5,7 @@ import nl.tudelft.core.language.actionspec.file.ACT2GFileType;
 import nl.tudelft.core.language.mas.file.MAS2GFileType;
 import nl.tudelft.core.language.module.file.MOD2GFileType;
 import nl.tudelft.core.language.prolog.file.PrologFileType;
+import nl.tudelft.core.language.test.file.TEST2GFileType;
 import org.jetbrains.annotations.NotNull;
 
 public class GoalFileFactory extends FileTypeFactory {
@@ -14,5 +15,6 @@ public class GoalFileFactory extends FileTypeFactory {
         consumer.consume(ACT2GFileType.INSTANCE, "act2g");
         consumer.consume(PrologFileType.INSTANCE, "pl");
         consumer.consume(MOD2GFileType.INSTANCE, "mod2g");
+        consumer.consume(TEST2GFileType.INSTANCE, "test2g");
     }
 }

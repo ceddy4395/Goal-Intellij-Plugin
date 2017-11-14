@@ -2,6 +2,7 @@ package nl.tudelft.core.language.test;
 
 import com.intellij.openapi.fileTypes.FileType;
 import nl.tudelft.core.language.GoalLanguage;
+import nl.tudelft.core.language.test.file.TEST2GFileType;
 
 /**
  * Created by Cedric Willekens (4530373) on 11/14/2017.
@@ -16,6 +17,6 @@ public class TestLanguage extends GoalLanguage {
 
     @Override
     public FileType providedType() {
-        return null;
+        return TEST2GFileType.INSTANCE;
     }
 }

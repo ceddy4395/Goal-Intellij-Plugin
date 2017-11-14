@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Created by Cedric Willekens (4530373) on 11/14/2017.
  */
 public class TEST2GFile extends GoalFile {
-    protected TEST2GFile(@NotNull FileViewProvider viewProvider) {
+    public TEST2GFile(@NotNull FileViewProvider viewProvider) {
         super(viewProvider, TestLanguage.INSTANCE);
     }
 }

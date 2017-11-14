@@ -41,6 +41,8 @@
     <lang.parserDefinition language="Goal Module" implementationClass="nl.tudelft.core.language.module.grammer.ModuleParserDefinition"/>
     <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.core.language.module.ModuleSyntaxHighligtherFactory"/>
 
+    <lang.parserDefinition language="GOAL Test" implementationClass="nl.tudelft.core.language.test.grammer.TestParserDefinition"/>
+
     <!-- Add your extensions here -->
   </extensions>
 

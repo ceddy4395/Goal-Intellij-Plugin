@@ -1,6 +1,5 @@
 package nl.tudelft.core.language.test.file;
 
-import com.intellij.lang.Language;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import nl.tudelft.core.Icons;
 import nl.tudelft.core.language.test.TestLanguage;
@@ -13,6 +12,9 @@ import javax.swing.*;
  * Created by Cedric Willekens (4530373) on 11/14/2017.
  */
 public class TEST2GFileType extends LanguageFileType {
+
+    public static final TEST2GFileType INSTANCE = new TEST2GFileType();
+
     /**
      * Creates a language file type for the specified language.
      */
