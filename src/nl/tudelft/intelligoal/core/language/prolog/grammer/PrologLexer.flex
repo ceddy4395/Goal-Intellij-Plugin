@@ -1,11 +1,11 @@
-package nl.tudelft.core.language.prolog.grammer;
+package nl.tudelft.intelligoal.core.language.prolog.grammer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static nl.tudelft.core.language.prolog.grammer.PrologTypes.*;
+import static nl.tudelft.intelligoal.core.language.prolog.grammer.PrologTypes.*;
 
 %%
 

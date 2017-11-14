@@ -7,6 +7,7 @@ import static nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpec
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
 import com.intellij.lang.LightPsiParser;
 
@@ -865,7 +866,7 @@ public class ActionSpecParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // USE fileReference ('as' usage)? '.'
+  // 'use' fileReference ('as' usage)? '.'
   public static boolean useClause(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useClause")) return false;
     boolean r, p;

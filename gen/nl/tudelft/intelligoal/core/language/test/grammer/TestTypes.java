@@ -4,27 +4,7 @@ package nl.tudelft.intelligoal.core.language.test.grammer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import nl.tudelft.core.language.test.grammer.psi.impl.*;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestAgentDefImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestBasicTermImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestEventuallyRuleImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestFileReferenceImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestIdentifierImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestLeadstoRuleImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestListImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestMoodImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestNumberImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestPredicateImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestQueryImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestQueryListImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestRuleImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestStringImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestTermImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestTermListImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestTestModuleImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestTimeoutDefImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestUsageImpl;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestUseClauseImpl;
+import nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.*;
 
 public interface TestTypes {
 

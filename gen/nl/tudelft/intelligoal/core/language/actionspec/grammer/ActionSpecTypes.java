@@ -4,23 +4,7 @@ package nl.tudelft.intelligoal.core.language.actionspec.grammer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import nl.tudelft.core.language.actionspec.grammer.psi.impl.*;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecActionSpecImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecAsClauseImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecAtomIdentifierImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecBasicTermImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecCallableImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecFileReferenceImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecIdentifierImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecListImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecNumberImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecOperatorImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecPredicateImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecStringImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecTermImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecTermListImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecUsageImpl;
-import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecUseClauseImpl;
+import nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.*;
 
 public interface ActionSpecTypes {
 

@@ -4,9 +4,11 @@ package nl.tudelft.intelligoal.core.language.mas.grammer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.TokenType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
+import static nl.tudelft.intelligoal.core.language.mas.grammer.MasTypes.*;
 
 
 /**
@@ -628,115 +630,115 @@ public class MasLexer implements FlexLexer {
             }
           case 32: break;
           case 3: 
-            { return MasTypes.ID;
+            { return ID;
             }
           case 33: break;
           case 4: 
-            { return MasTypes.INTEGER;
+            { return INTEGER;
             }
           case 34: break;
           case 5: 
-            { return MasTypes.DOT;
+            { return DOT;
             }
           case 35: break;
           case 6: 
-            { return MasTypes.LINE_COMMENT;
+            { return LINE_COMMENT;
             }
           case 36: break;
           case 7: 
-            { return MasTypes.OCURLY;
+            { return OCURLY;
             }
           case 37: break;
           case 8: 
-            { return MasTypes.CCURLY;
+            { return CCURLY;
             }
           case 38: break;
           case 9: 
-            { return MasTypes.EQ;
+            { return EQ;
             }
           case 39: break;
           case 10: 
-            { return MasTypes.STAR;
+            { return STAR;
             }
           case 40: break;
           case 11: 
-            { return MasTypes.COMMA;
+            { return COMMA;
             }
           case 41: break;
           case 12: 
-            { return MasTypes.AS;
+            { return AS;
             }
           case 42: break;
           case 13: 
-            { return MasTypes.SQSTRING;
+            { return SQSTRING;
             }
           case 43: break;
           case 14: 
-            { return MasTypes.DQSTRING;
+            { return DQSTRING;
             }
           case 44: break;
           case 15: 
-            { return MasTypes.REAL;
+            { return REAL;
             }
           case 45: break;
           case 16: 
-            { return MasTypes.MAX;
+            { return MAX;
             }
           case 46: break;
           case 17: 
-            { return MasTypes.USE;
+            { return USE;
             }
           case 47: break;
           case 18: 
-            { return MasTypes.USE_CASE_VAL;
+            { return USE_CASE_VAL;
             }
           case 48: break;
           case 19: 
-            { return MasTypes.NAME;
+            { return NAME;
             }
           case 49: break;
           case 20: 
-            { return MasTypes.TYPE;
+            { return TYPE;
             }
           case 50: break;
           case 21: 
-            { return MasTypes.WITH;
+            { return WITH;
             }
           case 51: break;
           case 22: 
-            { return MasTypes.WHEN;
+            { return WHEN;
             }
           case 52: break;
           case 23: 
-            { return MasTypes.AGENT;
+            { return AGENT;
             }
           case 53: break;
           case 24: 
-            { return MasTypes.NUMBER;
+            { return NUMBER;
             }
           case 54: break;
           case 25: 
-            { return MasTypes.MODULE;
+            { return MODULE;
             }
           case 55: break;
           case 26: 
-            { return MasTypes.DEFINE;
+            { return DEFINE;
             }
           case 56: break;
           case 27: 
-            { return MasTypes.LAUNCH;
+            { return LAUNCH;
             }
           case 57: break;
           case 28: 
-            { return MasTypes.INSTRUCTION;
+            { return INSTRUCTION;
             }
           case 58: break;
           case 29: 
-            { return MasTypes.ENVIRONMENT;
+            { return ENVIRONMENT;
             }
           case 59: break;
           case 30: 
-            { return MasTypes.LAUNCHPOLICY;
+            { return LAUNCHPOLICY;
             }
           case 60: break;
           default:

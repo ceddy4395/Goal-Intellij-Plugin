@@ -4,9 +4,9 @@
 
     psiClassPrefix="Prolog"
     psiImplClassSuffix="Impl"
-    psiPackage="nl.tudelft.core.language.prolog.grammer.psi.iface"
-    psiImplPackage="nl.tudelft.core.language.prolog.grammer.psi.impl"
-    psiImplUtilClass="nl.tudelft.core.language.prolog.grammer.psi.impl.PrologPsiImplUtil"
+    psiPackage="nl.tudelft.intelligoal.core.language.prolog.grammer.psi.iface"
+    psiImplPackage="nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl"
+    psiImplUtilClass="nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologPsiImplUtil"
 
     elementTypeHolderClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologTypes"
     elementTypeClass="nl.tudelft.intelligoal.core.language.prolog.grammer.PrologElementType"

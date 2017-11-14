@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package nl.tudelft.intelligoal.core.language.module.grammer.psi.impl;
 
-import nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleOption;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleVisitor;
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.module.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.*;
 
 public class ModuleOptionImpl extends ASTWrapperPsiElement implements ModuleOption {
 
@@ -29,19 +29,19 @@ public class ModuleOptionImpl extends ASTWrapperPsiElement implements ModuleOpti
   @Override
   @Nullable
   public PsiElement getExitVal() {
-    return findChildByType(ModuleTypes.EXIT_VAL);
+    return findChildByType(EXIT_VAL);
   }
 
   @Override
   @Nullable
   public PsiElement getFocusVal() {
-    return findChildByType(ModuleTypes.FOCUS_VAL);
+    return findChildByType(FOCUS_VAL);
   }
 
   @Override
   @Nullable
   public PsiElement getOrderVal() {
-    return findChildByType(ModuleTypes.ORDER_VAL);
+    return findChildByType(ORDER_VAL);
   }
 
 }

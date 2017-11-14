@@ -4,27 +4,7 @@ package nl.tudelft.intelligoal.core.language.mas.grammer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import nl.tudelft.core.language.mas.grammer.psi.impl.*;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasAgentBlockImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasConstraintImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasConstraintListImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasEntityImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasEnvironmentPropertyImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasEnvironmentPropertyListImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasEnvironmentSpecImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasIdentifierImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasInstructionImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasInstructionListImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasLaunchPolicyImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasLaunchRuleImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasMasFileImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasModuleIdImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasModuleStringImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasNumberLiteralImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasSimpleIdentifierImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasStringImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasUseCaseImpl;
-import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasUseClauseImpl;
+import nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.*;
 
 public interface MasTypes {
 
