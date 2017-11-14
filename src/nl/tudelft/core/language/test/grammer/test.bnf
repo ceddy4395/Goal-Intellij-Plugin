@@ -161,7 +161,7 @@ number ::= INTERGER | REAL
 string ::= DQSTRING | SQSTRING
 identifier ::= ATOM | VARIABLE
 
-private recover_topClause ::= !('use'|'test')
+private recover_topClause ::= !('use'|'test'|'timeout')
 
 
 // <>:<> OPERATORS! <>:<>

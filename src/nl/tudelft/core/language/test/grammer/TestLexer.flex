@@ -44,6 +44,8 @@ VARIABLE=[A-Z_][A-Za-z0-9_]*
   "with"              { return WITH; }
   "{"                 { return OPEN_CURLY; }
   "}"                 { return CLOSE_CURLY; }
+  "mas"               { return MAS; }
+  "knowledge"         { return KNOWLEDGE; }
   "module"            { return MODULE; }
   "number"            { return NUMBER; }
   "="                 { return EQ; }
@@ -54,6 +56,14 @@ VARIABLE=[A-Z_][A-Za-z0-9_]*
     "with"                 { return WITH; }
     "pre"                  { return PRE; }
     "post"                 { return POST; }
+    "in"                   { return IN; }
+
+    "percept"               { return PERCEPT; }
+    "bel"                   { return BEL; }
+    "goal"                  { return GOAL; }
+    "a-goal"                { return AGOAL; }
+    "goal-a"                { return GOALA; }
+    "leadsto"               { return LEADSTO; }
 
     "not"                  { return NOT; }
     "true"                 { return TRUE; }

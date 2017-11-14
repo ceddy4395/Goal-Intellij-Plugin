@@ -42,7 +42,7 @@
     <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.core.language.module.ModuleSyntaxHighligtherFactory"/>
 
     <lang.parserDefinition language="GOAL Test" implementationClass="nl.tudelft.core.language.test.grammer.TestParserDefinition"/>
-
+    <lang.syntaxHighlighterFactory language="GOAL Test" implementationClass="nl.tudelft.core.language.test.TestSyntaxHighlighterFactory"/>
     <!-- Add your extensions here -->
   </extensions>
 

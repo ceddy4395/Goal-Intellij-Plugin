@@ -795,7 +795,7 @@ public class TestParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // !('use'|'test')
+  // !('use'|'test'|'timeout')
   static boolean recover_topClause(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "recover_topClause")) return false;
     boolean r;
@@ -805,13 +805,14 @@ public class TestParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // 'use'|'test'
+  // 'use'|'test'|'timeout'
   private static boolean recover_topClause_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "recover_topClause_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, USE);
     if (!r) r = consumeToken(b, TEST);
+    if (!r) r = consumeToken(b, "timeout");
     exit_section_(b, m, null, r);
     return r;
   }
