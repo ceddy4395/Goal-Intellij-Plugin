@@ -1,4 +1,4 @@
-package nl.tudelft.core.langauge.prolog.grammer;
+package nl.tudelft.core.language.prolog.grammer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
