@@ -1,0 +1,250 @@
+{
+    parserClass = "nl.tudelft.core.language.module.grammer.ModuleParser"
+    extends = "com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix = "Module"
+    psiImplClassSuffix = "Impl"
+    psiPackage = "nl.tudelft.core.language.module.grammer.psi.iface"
+    psiImplPackage = "nl.tudelft.core.language.module.grammer.psi.impl"
+    psiImplUtilClass = "nl.tudelft.core.language.module.grammer.psi.impl.ModulePsiUtilImpl"
+
+    elementTypeHolderClass = "nl.tudelft.core.language.module.grammer.ModuleTypes"
+    elementTypeClass = "nl.tudelft.core.language.module.grammar.ModuleElementType"
+    tokenTypeClass = "nl.tudelft.core.language.module.grammar.ModuleTokenType"
+
+    tokens = [
+        USE = 'use'
+        AS = 'as'
+
+        MODULE = 'module'
+        DEFINE = 'define'
+
+        ORDER = 'order'
+        EXIT = 'exit'
+        FOCUS = 'focus'
+
+        BEL = 'bel'
+        PERCEPT = 'percept'
+        GOAL = 'goal'
+        GOALA = 'goal-a'
+        AGOAL = 'a-goal'
+        NOT = 'not'
+
+        TRUE = 'true'
+
+        IF = 'if'
+        THEN = 'then'
+        FORALL = 'forall'
+        DO = 'do'
+        LISTALL = 'listall'
+
+        SEND = 'send'
+        SENT = 'sent'
+
+        EXIT_MODULE = 'exit-module'
+        LOG = 'log'
+        PRINT = 'print'
+        INSERT = 'insert'
+        DELETE = 'delete'
+        ADOPT = 'adopt'
+        DROP = 'drop'
+
+        BASIC_USAGE_VAL = 'regexp:actionspec|knowledge|beliefs|goals'
+        ORDER_VAL = 'regexp:linear|linearall|linearrandom|random|randomall|linearallrandom'
+        EXIT_VAL = 'regexp:nogoals|never|always|noaction'
+        FOCUS_VAL = 'regexp:none|new|select|filter'
+        SELECTOR_VAL = 'regexp:all|allother|some|someother|self|this'
+
+        DOT = '.'
+        COMMA = ','
+        EQ = '='
+
+        OBRACKET = '['
+        CBRACKET = ']'
+        OPAREN = '('
+        CPAREN = ')'
+        OPEN_CURLY = '{'
+        CLOSE_CURLY = '}'
+
+        BANG = '!'
+        WHAT = '?'
+        REVERSE_SNEK = '<-'
+        SEMI = ";"
+        BAR = "|"
+        IMPLIES = "->"
+        SOFT_IMPLIES = "*->"
+        UNPLUS = "\+"
+        LT = "<"
+        UNIV = "=.."
+        VARIANT = "=@="
+        NOT_VARIANT = "\=@="
+        EVALUATES = "=:="
+        LEQ = "=<"
+        IDENTICAL = "=="
+        NOT_IDENTICAL = "=\="
+        GT = ">"
+        GE = ">="
+        GENERAL_LT = "@<"
+        GENERAL_LE = "@=<"
+        GENERAL_GT = "@>"
+        GENERAL_GE = "@>="
+        NOT_UNIFY = "\="
+        NOT_IDENTICAL = "\=="
+        PARTIAL_UNIFICATION = ">:<"
+        COLON = ':'
+        PLUS = '+'
+        MINUS = '-'
+        BITWISE_AND = '/\'
+        BITWISE_OR = '\/'
+        MULT = "*"
+        INT_DIV = "//"
+        BITSHIFT_LEFT = '<<'
+        BITSHIFT_RIGHT = '>>'
+        POW = '**'
+        POW2 = '^'
+        INV = '\'
+        SLASH = '/'
+
+        INTEGER = "regexp:-?[0-9]+|0b[01]+|0o[0-7]+|0x[0-9A-Fa-f]+|[0-9]{1,2}'[0-9A-Za-z]+"
+        REAL = "regexp:-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"
+
+        SQSTRING = "regexp:'([^'\\]|\\.)*?'"
+        DQSTRING = 'regexp:"([^"\\]|\\.)*?"'
+
+        ATOM = "regexp:([a-z][A-Za-z0-9_]*)|('([^'\\]|\\.)*?')"
+
+        VARIABLE = "regexp:[A-Z_][A-Za-z0-9_]*"
+
+        line_comment = 'regexp:%.*'
+    ]
+}
+
+moduleFile ::= useClause+ option* macroDef* moduleClause
+
+// Rules in a prologue.
+useClause ::= 'use' fileReference ('as' usage)? '.' {pin=1 recoverWhile=recover_topClause}
+macroDef ::= 'define' callable 'as' queryList '.' {pin=1 recoverWhile=recover_topClause}
+option ::= exitProperty | focusProperty | orderProperty {pin(".*")=1 recoverWhile=recover_topClause}
+
+// Usage rules.
+usage ::= BASIC_USAGE_VAL | 'module'
+fileReference ::= string | VARIABLE | ATOM
+moduleName ::= string | VARIABLE | ATOM
+
+// Properties.
+private exitProperty ::= 'exit' '=' EXIT_VAL '.' {pin=1}
+private focusProperty ::= 'focus' '=' FOCUS_VAL '.' {pin=1}
+private orderProperty ::= 'order' '=' ORDER_VAL '.' {pin=1}
+
+// Clauses. Every file has different clauses.
+moduleClause ::= 'module' callableModule block {pin=1}
+
+// Rules. Test rules have different clause types.
+rule ::= ifRule | forallRule | listallRule
+private ifRule ::= 'if' queryList 'then' actionSet {pin=1 recoverWhile=recover_rule}
+private forallRule ::= 'forall' queryList 'do' actionSet {pin=1 recoverWhile=recover_rule}
+private listallRule ::= 'listall' VARIABLE '<-' 'do' actionSet {pin=1 recoverWhile=recover_rule}
+
+private actionSet ::= block | (actionCombo '.')
+block ::= '{' rule+ '}' {pin=1}
+
+// State queries.
+queryList ::= query (',' query)* {name=query}
+private simpleQuery ::= selectorQuery | predicate
+private selectorQuery ::= (selector '.')? (belQuery | goalQuery | perceptQuery | mailQuery)
+private invertedQuery ::= 'not' '(' simpleQuery ')'
+query ::= invertedQuery | simpleQuery
+
+private belQuery ::= 'bel' '(' termList ')' {pin=1}
+private goalQuery ::= ('goal' | 'a-goal' | 'goal-a') '(' termList ')' {pin=1}
+private perceptQuery ::= 'percept' '(' termList ')' {pin=1}
+private mailQuery ::= 'sent' mood? '(' termList ')' {pin=1}
+
+// Actions.
+actionCombo ::= action ('+' action)*
+action ::= selectorAction | generalAction | predicateAction
+private selectorAction ::= (selector '.')? (insertAction | deleteAction | adoptAction | dropAction | sendAction)
+private generalAction ::= 'exit-module' | logAction | printAction
+private logAction ::= 'log' '(' termList ')'
+private printAction ::= 'print' '(' term ')'
+predicateAction ::= predicate
+
+insertAction ::= 'insert' '(' termList ')'
+deleteAction ::= 'delete' '(' termList ')'
+adoptAction ::= 'adopt' '(' termList ')'
+dropAction ::= 'drop' '(' termList ')'
+sendAction ::= 'send' mood? '(' termList ')'
+mood ::= ':' | '?' | '!'
+
+selector ::= SELECTOR_VAL | '(' (VARIABLE | ATOM) ')'
+
+// Misc. syntax rules.
+string ::= DQSTRING | SQSTRING
+
+// Callables.
+callable ::= ATOM ['(' variableList ')']
+callableModule ::= moduleName ['(' variableList ')']
+
+variableList ::= VARIABLE (',' VARIABLE)*
+
+// Predicate
+identifier ::= ATOM | VARIABLE | 'true' | 'define' | 'module' | 'order' | 'exit' | 'focus' | 'bel' | 'percept' | 'goal' | 'if' | 'then' | 'forall' | 'do' | 'listall' | 'send' | 'sent' | 'log' | 'print' | 'insert' | 'delete' | 'adopt' | 'drop' | BASIC_USAGE_VAL | ORDER_VAL | EXIT_VAL | FOCUS_VAL | SELECTOR_VAL | 'not' {name=identifier}
+predicate ::= identifier ['(' termList ')'] {pin='('}
+
+// Term. Since a term should be parsed by the KR language it will also accept many keywords.
+// This parser is simple (read dumb), so just tack on all possible keywords.
+termList ::=  term (',' term)* {name=term}
+basicTerm ::= predicate | VARIABLE | number | string | '(' termList ')' | list {name=term}
+private nakedTerm ::= basicTerm (binaryOperator basicTerm)+ | prefixOperator+ basicTerm+ | basicTerm {name=term}
+private enclosedTerm ::= '(' nakedTerm ')' {name=term pin='('}
+term ::= enclosedTerm | nakedTerm
+number ::= INTEGER | REAL
+list ::= '[' termList ']' {pin='['}
+
+// <>:<> OPERATORS! <>:<>
+private op_disjunction ::= ";"
+private op_bar ::= "|"
+private op_implies ::= "->"
+private op_soft_implies ::= "*->"
+private op_not ::= "\+"
+private op_lt ::= "<"
+private op_unify ::= "="
+private op_univ ::= "=.."
+private op_variant ::= "=@="
+private op_not_variant ::= "\=@="
+private op_evaluates ::= "=:="
+private op_leq ::= "=<"
+private op_identical ::= "=="
+private op_not_identical ::= "=\="
+private op_gt ::= ">"
+private op_ge ::= ">="
+private op_general_lt ::= "@<"
+private op_general_le ::= "@=<"
+private op_general_gt ::= "@>"
+private op_general_ge ::= "@>="
+private op_not_unify ::= "\="
+private op_not_identical2 ::= "\=="
+private op_partial_unification ::= ">:<"
+private op_colon ::= ':'
+private op_plus ::= '+'
+private op_minus ::= '-'
+private op_bitwise_and ::= '/\'
+private op_bitwise_or ::= '\/'
+private op_mult ::= "*"
+private op_int_div ::= "//"
+private op_bitshift_left ::= '<<'
+private op_bitshift_right ::= '>>'
+private op_pow ::= '**'
+private op_pow2 ::= '^'
+private op_inv ::= '\'
+private op_as ::= 'as'
+private op_is ::= 'is'
+private op_div ::= '/'
+
+operator ::= binaryOperator | prefixOperator
+private binaryOperator ::= op_disjunction | op_bar | op_implies | op_soft_implies | op_lt | op_unify | op_univ | op_variant | op_not_variant | op_evaluates | op_leq | op_identical | op_not_identical | op_gt | op_ge | op_general_lt | op_general_le | op_general_gt | op_general_ge | op_not_unify | op_partial_unification | op_colon | op_plus | op_minus | op_bitwise_and | op_bitwise_or | op_mult | op_div | op_int_div | op_bitshift_left | op_bitshift_right | op_pow | op_pow2 | op_as | op_not_identical2 | ATOM
+private prefixOperator ::= op_plus | op_minus | op_not
+
+// Recovery.
+private recover_topClause ::= !('use'|'define'|'exit'|'focus'|'order'|'module')
+private recover_rule ::= !('if'|'forall'|'listall'|'}')

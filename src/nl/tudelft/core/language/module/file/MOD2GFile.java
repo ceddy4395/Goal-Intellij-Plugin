@@ -14,7 +14,7 @@ import javax.swing.*;
  * Created by Cedric Willekens (4530373) on 11/13/2017.
  */
 public class MOD2GFile extends GoalFile {
-    protected MOD2GFile(@NotNull FileViewProvider viewProvider) {
+    public MOD2GFile(@NotNull FileViewProvider viewProvider) {
         super(viewProvider, ModuleLanguage.INSTANCE);
     }
 

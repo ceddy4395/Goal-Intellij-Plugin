@@ -37,6 +37,10 @@
 
     <lang.parserDefinition language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecParserDefinition"/>
     <lang.syntaxHighlighterFactory language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.ActionSpecSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="Goal Module" implementationClass="nl.tudelft.core.language.module.grammar.ModuleParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.core.language.module.ModuleSyntaxHighligtherFactory"/>
+
     <!-- Add your extensions here -->
   </extensions>
 
