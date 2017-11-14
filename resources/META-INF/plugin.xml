@@ -1,17 +1,23 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <id>nl.tudelft.intelligoal</id>
+  <name>IntelliGoal</name>
+  <version>0.2</version>
+  <vendor email="c.s.willekens@student.tudelft.nl" url="ceddy4395.github.io"></vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      The plugin to develop Multi-Agent systems using GOAL. <br>
+      This project is open sourced and can be found at: https://github.com/ceddy4395/Goal-Intellij-Plugin <br>
+      Please report any bugs to c.s.willekens@student.tudelft.nl
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+        <li>Add syntax highlighting to mod2g files</li>
+        <li>Add syntax highligthing to mas2g files</li>
+        <li>Add syntax highlighting to test2g files</li>
+        <li>Add syntax highlighting to act2g files</li>
+        <li>Add grammar to the mod2g files</li>
+        <li>Add grammar to the mas2g files</li>
+        <li>Add grammar to the act2g files</li>
     ]]>
   </change-notes>
 
