@@ -1,6 +1,5 @@
 package nl.tudelft.core.language.prolog.grammer;
 
-import com.google.common.jimfs.File;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
@@ -12,7 +11,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import nl.tudelft.core.langauge.prolog.grammer.PrologLexer;
 import nl.tudelft.core.language.prolog.PrologLanguage;
 import nl.tudelft.core.language.prolog.file.PrologFile;
 import org.jetbrains.annotations.NotNull;

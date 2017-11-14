@@ -97,10 +97,11 @@ public class ModuleSyntaxHighligther extends SyntaxHighlighterBase {
         MAP.put(ModuleTypes.EXIT_VAL, KEYWORDS);
         MAP.put(ModuleTypes.FOCUS_VAL, KEYWORDS);
         MAP.put(ModuleTypes.SELECTOR_VAL, KEYWORDS);
-        MAP.put(ModuleTypes.BANG, KEYWORDS);
-        MAP.put(ModuleTypes.WHAT, KEYWORDS);
-        MAP.put(ModuleTypes.COLON, KEYWORDS);
-        MAP.put(ModuleTypes.REVERSE_SNEK, KEYWORDS);
+
+        MAP.put(ModuleTypes.BANG, OPERATORS);
+        MAP.put(ModuleTypes.WHAT, OPERATORS);
+        MAP.put(ModuleTypes.COLON, OPERATORS);
+        MAP.put(ModuleTypes.REVERSE_SNEK, OPERATORS);
 
         MAP.put(ModuleTypes.OPERATOR, OPERATORS);
 
