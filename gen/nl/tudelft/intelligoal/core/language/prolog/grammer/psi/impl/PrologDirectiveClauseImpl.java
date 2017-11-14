@@ -2,10 +2,6 @@
 package nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl;
 
 import java.util.List;
-
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.iface.PrologDirectiveClause;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.iface.PrologPredicateSpec;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.iface.PrologVisitor;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -13,7 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static nl.tudelft.intelligoal.core.language.prolog.grammer.PrologTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.prolog.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.iface.*;
 
 public class PrologDirectiveClauseImpl extends ASTWrapperPsiElement implements PrologDirectiveClause {
 

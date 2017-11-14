@@ -2,16 +2,14 @@
 package nl.tudelft.intelligoal.core.language.module.grammer.psi.impl;
 
 import java.util.List;
-
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleActionCombo;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleVisitor;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
+import static nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.module.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.*;
 
 public class ModuleActionComboImpl extends ASTWrapperPsiElement implements ModuleActionCombo {
 

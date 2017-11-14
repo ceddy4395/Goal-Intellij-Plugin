@@ -4,19 +4,7 @@ package nl.tudelft.intelligoal.core.language.prolog.grammer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import nl.tudelft.core.language.prolog.grammer.psi.impl.*;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologCallableImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologClauseImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologDirectiveClauseImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologListImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologNumberImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologOperatorImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologPredicateImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologPredicateSpecImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologStringImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologTermImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologTermListImpl;
-import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.PrologVariableListImpl;
+import nl.tudelft.intelligoal.core.language.prolog.grammer.psi.impl.*;
 
 public interface PrologTypes {
 

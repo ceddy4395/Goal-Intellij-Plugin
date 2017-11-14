@@ -1,4 +1,4 @@
-package nl.tudelft.core.language.mas.grammer;
+package nl.tudelft.intelligoal.core.language.mas.grammer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
@@ -6,7 +6,7 @@ import com.intellij.psi.TokenType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static nl.tudelft.core.language.mas.grammer.MasTypes.*;
+import static nl.tudelft.intelligoal.core.language.mas.grammer.MasTypes.*;
 
 %%
 

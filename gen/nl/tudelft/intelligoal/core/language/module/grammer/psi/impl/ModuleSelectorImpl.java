@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package nl.tudelft.intelligoal.core.language.module.grammer.psi.impl;
 
-import nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleSelector;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleVisitor;
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.module.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.*;
 
 public class ModuleSelectorImpl extends ASTWrapperPsiElement implements ModuleSelector {
 
@@ -29,19 +29,19 @@ public class ModuleSelectorImpl extends ASTWrapperPsiElement implements ModuleSe
   @Override
   @Nullable
   public PsiElement getAtom() {
-    return findChildByType(ModuleTypes.ATOM);
+    return findChildByType(ATOM);
   }
 
   @Override
   @Nullable
   public PsiElement getSelectorVal() {
-    return findChildByType(ModuleTypes.SELECTOR_VAL);
+    return findChildByType(SELECTOR_VAL);
   }
 
   @Override
   @Nullable
   public PsiElement getVariable() {
-    return findChildByType(ModuleTypes.VARIABLE);
+    return findChildByType(VARIABLE);
   }
 
 }

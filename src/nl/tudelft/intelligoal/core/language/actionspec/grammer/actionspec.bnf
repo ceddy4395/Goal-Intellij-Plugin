@@ -4,8 +4,8 @@
 
     psiClassPrefix="ActionSpec"
     psiImplClassSuffix="Impl"
-    psiPackage="nl.tudelft.core.language.actionspec.grammer.psi.iface"
-    psiImplPackage="nl.tudelft.core.language.actionspec.grammer.psi.impl"
+    psiPackage="nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.iface"
+    psiImplPackage="nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl"
     psiImplUtilClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.psi.impl.ActionSpecActionSpecImpl"
 
     elementTypeHolderClass="nl.tudelft.intelligoal.core.language.actionspec.grammer.ActionSpecTypes"

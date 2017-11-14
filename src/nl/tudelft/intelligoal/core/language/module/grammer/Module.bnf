@@ -4,9 +4,9 @@
 
     psiClassPrefix = "Module"
     psiImplClassSuffix = "Impl"
-    psiPackage = "nl.tudelft.core.language.module.grammer.psi.iface"
-    psiImplPackage = "nl.tudelft.core.language.module.grammer.psi.impl"
-    psiImplUtilClass = "nl.tudelft.core.language.module.grammer.psi.impl.ModulePsiUtilImpl"
+    psiPackage = "nl.tudelft.intelligoal.core.language.module.grammer.psi.iface"
+    psiImplPackage = "nl.tudelft.intelligoal.core.language.module.grammer.psi.impl"
+    psiImplUtilClass = "nl.tudelft.intelligoal.core.language.module.grammer.psi.impl.ModulePsiUtilImpl"
 
     elementTypeHolderClass = "nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes"
     elementTypeClass = "nl.tudelft.intelligoal.core.language.module.grammer.ModuleElementType"

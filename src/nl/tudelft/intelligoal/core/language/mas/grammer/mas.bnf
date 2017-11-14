@@ -4,9 +4,9 @@
 
   psiClassPrefix="Mas"
   psiImplClassSuffix="Impl"
-  psiPackage="nl.tudelft.core.language.mas.grammer.psi.iface"
-  psiImplPackage="nl.tudelft.core.language.mas.grammer.psi.impl"
-  psiImplUtilClass="nl.tudelft.core.language.mas.grammer.psi.impl.MasPsiUtilImpl"
+  psiPackage="nl.tudelft.intelligoal.core.language.mas.grammer.psi.iface"
+  psiImplPackage="nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl"
+  psiImplUtilClass="nl.tudelft.intelligoal.core.language.mas.grammer.psi.impl.MasPsiUtilImpl"
 
   elementTypeHolderClass="nl.tudelft.intelligoal.core.language.mas.grammer.MasTypes"
   elementTypeClass="nl.tudelft.intelligoal.core.language.mas.grammer.MasElementType"

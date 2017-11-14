@@ -3,12 +3,11 @@ package nl.tudelft.intelligoal.core.language.mas.grammer;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-
+import static nl.tudelft.intelligoal.core.language.mas.grammer.MasTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
-
-import com.intellij.lang.parser.GeneratedParserUtilBase;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
 import com.intellij.lang.LightPsiParser;
 
@@ -24,64 +23,64 @@ public class MasParser implements PsiParser, LightPsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == MasTypes.AGENT_BLOCK) {
+    if (t == AGENT_BLOCK) {
       r = agentBlock(b, 0);
     }
-    else if (t == MasTypes.CONSTRAINT) {
+    else if (t == CONSTRAINT) {
       r = constraint(b, 0);
     }
-    else if (t == MasTypes.CONSTRAINT_LIST) {
+    else if (t == CONSTRAINT_LIST) {
       r = constraintList(b, 0);
     }
-    else if (t == MasTypes.ENTITY) {
+    else if (t == ENTITY) {
       r = entity(b, 0);
     }
-    else if (t == MasTypes.ENVIRONMENT_PROPERTY) {
+    else if (t == ENVIRONMENT_PROPERTY) {
       r = environmentProperty(b, 0);
     }
-    else if (t == MasTypes.ENVIRONMENT_PROPERTY_LIST) {
+    else if (t == ENVIRONMENT_PROPERTY_LIST) {
       r = environmentPropertyList(b, 0);
     }
-    else if (t == MasTypes.ENVIRONMENT_SPEC) {
+    else if (t == ENVIRONMENT_SPEC) {
       r = environmentSpec(b, 0);
     }
-    else if (t == MasTypes.IDENTIFIER) {
+    else if (t == IDENTIFIER) {
       r = identifier(b, 0);
     }
-    else if (t == MasTypes.INSTRUCTION) {
+    else if (t == INSTRUCTION) {
       r = instruction(b, 0);
     }
-    else if (t == MasTypes.INSTRUCTION_LIST) {
+    else if (t == INSTRUCTION_LIST) {
       r = instructionList(b, 0);
     }
-    else if (t == MasTypes.LAUNCH_POLICY) {
+    else if (t == LAUNCH_POLICY) {
       r = launchPolicy(b, 0);
     }
-    else if (t == MasTypes.LAUNCH_RULE) {
+    else if (t == LAUNCH_RULE) {
       r = launchRule(b, 0);
     }
-    else if (t == MasTypes.MAS_FILE) {
+    else if (t == MAS_FILE) {
       r = masFile(b, 0);
     }
-    else if (t == MasTypes.MODULE_ID) {
+    else if (t == MODULE_ID) {
       r = moduleId(b, 0);
     }
-    else if (t == MasTypes.MODULE_STRING) {
+    else if (t == MODULE_STRING) {
       r = moduleString(b, 0);
     }
-    else if (t == MasTypes.NUMBER_LITERAL) {
+    else if (t == NUMBER_LITERAL) {
       r = numberLiteral(b, 0);
     }
-    else if (t == MasTypes.SIMPLE_IDENTIFIER) {
+    else if (t == SIMPLE_IDENTIFIER) {
       r = simpleIdentifier(b, 0);
     }
-    else if (t == MasTypes.STRING) {
+    else if (t == STRING) {
       r = string(b, 0);
     }
-    else if (t == MasTypes.USE_CASE) {
+    else if (t == USE_CASE) {
       r = useCase(b, 0);
     }
-    else if (t == MasTypes.USE_CLAUSE) {
+    else if (t == USE_CLAUSE) {
       r = useClause(b, 0);
     }
     else {
@@ -98,16 +97,16 @@ public class MasParser implements PsiParser, LightPsiParser {
   // 'define' identifier 'as' 'agent {' useClause+ '}'
   public static boolean agentBlock(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "agentBlock")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.DEFINE)) return false;
+    if (!nextTokenIs(b, DEFINE)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.DEFINE);
+    r = consumeToken(b, DEFINE);
     r = r && identifier(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.AS);
+    r = r && consumeToken(b, AS);
     r = r && consumeToken(b, "agent {");
     r = r && agentBlock_4(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.CCURLY);
-    exit_section_(b, m, MasTypes.AGENT_BLOCK, r);
+    r = r && consumeToken(b, CCURLY);
+    exit_section_(b, m, AGENT_BLOCK, r);
     return r;
   }
 
@@ -132,7 +131,7 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean constraint(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "constraint")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.CONSTRAINT, "<constraint>");
+    Marker m = enter_section_(b, l, _NONE_, CONSTRAINT, "<constraint>");
     r = constraint_0(b, l + 1);
     if (!r) r = constraint_1(b, l + 1);
     if (!r) r = constraint_2(b, l + 1);
@@ -145,7 +144,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "constraint_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.NAME, MasTypes.EQ);
+    r = consumeTokens(b, 0, NAME, EQ);
     r = r && identifier(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -156,7 +155,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "constraint_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.NUMBER, MasTypes.EQ);
+    r = consumeTokens(b, 0, NUMBER, EQ);
     r = r && numberLiteral(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -167,7 +166,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "constraint_2")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.MAX, MasTypes.EQ);
+    r = consumeTokens(b, 0, MAX, EQ);
     r = r && numberLiteral(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -178,7 +177,7 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean constraintList(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "constraintList")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.CONSTRAINT_LIST, "<constraint list>");
+    Marker m = enter_section_(b, l, _NONE_, CONSTRAINT_LIST, "<constraint list>");
     r = constraint(b, l + 1);
     r = r && constraintList_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -202,7 +201,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "constraintList_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.COMMA);
+    r = consumeToken(b, COMMA);
     r = r && constraint(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -213,8 +212,8 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean entity(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "entity")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.ENTITY, "<entity>");
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.STAR);
+    Marker m = enter_section_(b, l, _NONE_, ENTITY, "<entity>");
+    r = consumeToken(b, STAR);
     if (!r) r = entity_1(b, l + 1);
     if (!r) r = entity_2(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -226,7 +225,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "entity_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.TYPE, MasTypes.EQ);
+    r = consumeTokens(b, 0, TYPE, EQ);
     r = r && simpleIdentifier(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -237,7 +236,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "entity_2")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.NAME, MasTypes.EQ);
+    r = consumeTokens(b, 0, NAME, EQ);
     r = r && simpleIdentifier(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -248,9 +247,9 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean environmentProperty(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "environmentProperty")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.ENVIRONMENT_PROPERTY, "<environment property>");
+    Marker m = enter_section_(b, l, _NONE_, ENVIRONMENT_PROPERTY, "<environment property>");
     r = identifier(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.EQ);
+    r = r && consumeToken(b, EQ);
     r = r && environmentProperty_2(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
@@ -272,7 +271,7 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean environmentPropertyList(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "environmentPropertyList")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.ENVIRONMENT_PROPERTY_LIST, "<environment property list>");
+    Marker m = enter_section_(b, l, _NONE_, ENVIRONMENT_PROPERTY_LIST, "<environment property list>");
     r = environmentProperty(b, l + 1);
     r = r && environmentPropertyList_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -296,7 +295,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "environmentPropertyList_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.COMMA);
+    r = consumeToken(b, COMMA);
     r = r && environmentProperty(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -306,15 +305,15 @@ public class MasParser implements PsiParser, LightPsiParser {
   // 'use' string 'as' 'environment' ('with' environmentPropertyList)? '.'
   public static boolean environmentSpec(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "environmentSpec")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.USE)) return false;
+    if (!nextTokenIs(b, USE)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.USE);
+    r = consumeToken(b, USE);
     r = r && string(b, l + 1);
-    r = r && consumeTokens(b, 0, MasTypes.AS, MasTypes.ENVIRONMENT);
+    r = r && consumeTokens(b, 0, AS, ENVIRONMENT);
     r = r && environmentSpec_4(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.DOT);
-    exit_section_(b, m, MasTypes.ENVIRONMENT_SPEC, r);
+    r = r && consumeToken(b, DOT);
+    exit_section_(b, m, ENVIRONMENT_SPEC, r);
     return r;
   }
 
@@ -330,7 +329,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "environmentSpec_4_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.WITH);
+    r = consumeToken(b, WITH);
     r = r && environmentPropertyList(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -341,10 +340,10 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean identifier(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "identifier")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.IDENTIFIER, "<identifier>");
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.ID);
+    Marker m = enter_section_(b, l, _NONE_, IDENTIFIER, "<identifier>");
+    r = consumeToken(b, ID);
     if (!r) r = string(b, l + 1);
-    if (!r) r = GeneratedParserUtilBase.consumeToken(b, MasTypes.ATOM);
+    if (!r) r = consumeToken(b, ATOM);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -354,7 +353,7 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean instruction(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "instruction")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.INSTRUCTION, "<instruction>");
+    Marker m = enter_section_(b, l, _NONE_, INSTRUCTION, "<instruction>");
     r = identifier(b, l + 1);
     r = r && instruction_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -373,7 +372,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "instruction_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.WITH);
+    r = consumeToken(b, WITH);
     r = r && constraintList(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -384,7 +383,7 @@ public class MasParser implements PsiParser, LightPsiParser {
   public static boolean instructionList(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "instructionList")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.INSTRUCTION_LIST, "<instruction list>");
+    Marker m = enter_section_(b, l, _NONE_, INSTRUCTION_LIST, "<instruction list>");
     r = instruction(b, l + 1);
     r = r && instructionList_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -408,7 +407,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "instructionList_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.COMMA);
+    r = consumeToken(b, COMMA);
     r = r && instruction(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -418,13 +417,13 @@ public class MasParser implements PsiParser, LightPsiParser {
   // 'launchpolicy' '{' launchRule+ '}'
   public static boolean launchPolicy(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "launchPolicy")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.LAUNCHPOLICY)) return false;
+    if (!nextTokenIs(b, LAUNCHPOLICY)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, MasTypes.LAUNCHPOLICY, MasTypes.OCURLY);
+    r = consumeTokens(b, 0, LAUNCHPOLICY, OCURLY);
     r = r && launchPolicy_2(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.CCURLY);
-    exit_section_(b, m, MasTypes.LAUNCH_POLICY, r);
+    r = r && consumeToken(b, CCURLY);
+    exit_section_(b, m, LAUNCH_POLICY, r);
     return r;
   }
 
@@ -448,13 +447,13 @@ public class MasParser implements PsiParser, LightPsiParser {
   // ('when' entity)? 'launch' instructionList '.'
   public static boolean launchRule(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "launchRule")) return false;
-    if (!nextTokenIs(b, "<launch rule>", MasTypes.LAUNCH, MasTypes.WHEN)) return false;
+    if (!nextTokenIs(b, "<launch rule>", LAUNCH, WHEN)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.LAUNCH_RULE, "<launch rule>");
+    Marker m = enter_section_(b, l, _NONE_, LAUNCH_RULE, "<launch rule>");
     r = launchRule_0(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.LAUNCH);
+    r = r && consumeToken(b, LAUNCH);
     r = r && instructionList(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.DOT);
+    r = r && consumeToken(b, DOT);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -471,7 +470,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "launchRule_0_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.WHEN);
+    r = consumeToken(b, WHEN);
     r = r && entity(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -481,9 +480,9 @@ public class MasParser implements PsiParser, LightPsiParser {
   // environmentSpec? agentBlock+ launchPolicy
   public static boolean masFile(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "masFile")) return false;
-    if (!nextTokenIs(b, "<mas file>", MasTypes.DEFINE, MasTypes.USE)) return false;
+    if (!nextTokenIs(b, "<mas file>", DEFINE, USE)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.MAS_FILE, "<mas file>");
+    Marker m = enter_section_(b, l, _NONE_, MAS_FILE, "<mas file>");
     r = masFile_0(b, l + 1);
     r = r && masFile_1(b, l + 1);
     r = r && launchPolicy(b, l + 1);
@@ -518,11 +517,11 @@ public class MasParser implements PsiParser, LightPsiParser {
   // moduleString
   public static boolean moduleId(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleId")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.ID)) return false;
+    if (!nextTokenIs(b, ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = moduleString(b, l + 1);
-    exit_section_(b, m, MasTypes.MODULE_ID, r);
+    exit_section_(b, m, MODULE_ID, r);
     return r;
   }
 
@@ -530,12 +529,12 @@ public class MasParser implements PsiParser, LightPsiParser {
   // simpleIdentifier ('.' simpleIdentifier)*
   public static boolean moduleString(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "moduleString")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.ID)) return false;
+    if (!nextTokenIs(b, ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = simpleIdentifier(b, l + 1);
     r = r && moduleString_1(b, l + 1);
-    exit_section_(b, m, MasTypes.MODULE_STRING, r);
+    exit_section_(b, m, MODULE_STRING, r);
     return r;
   }
 
@@ -556,7 +555,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "moduleString_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.DOT);
+    r = consumeToken(b, DOT);
     r = r && simpleIdentifier(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -566,11 +565,11 @@ public class MasParser implements PsiParser, LightPsiParser {
   // INTEGER | REAL
   public static boolean numberLiteral(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "numberLiteral")) return false;
-    if (!nextTokenIs(b, "<number literal>", MasTypes.INTEGER, MasTypes.REAL)) return false;
+    if (!nextTokenIs(b, "<number literal>", INTEGER, REAL)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.NUMBER_LITERAL, "<number literal>");
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.INTEGER);
-    if (!r) r = GeneratedParserUtilBase.consumeToken(b, MasTypes.REAL);
+    Marker m = enter_section_(b, l, _NONE_, NUMBER_LITERAL, "<number literal>");
+    r = consumeToken(b, INTEGER);
+    if (!r) r = consumeToken(b, REAL);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -581,7 +580,7 @@ public class MasParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "root")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.LINE_COMMENT);
+    r = consumeToken(b, LINE_COMMENT);
     if (!r) r = masFile(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -591,11 +590,11 @@ public class MasParser implements PsiParser, LightPsiParser {
   // ID
   public static boolean simpleIdentifier(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "simpleIdentifier")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.ID)) return false;
+    if (!nextTokenIs(b, ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.ID);
-    exit_section_(b, m, MasTypes.SIMPLE_IDENTIFIER, r);
+    r = consumeToken(b, ID);
+    exit_section_(b, m, SIMPLE_IDENTIFIER, r);
     return r;
   }
 
@@ -603,11 +602,11 @@ public class MasParser implements PsiParser, LightPsiParser {
   // SQSTRING | DQSTRING
   public static boolean string(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "string")) return false;
-    if (!nextTokenIs(b, "<string>", MasTypes.DQSTRING, MasTypes.SQSTRING)) return false;
+    if (!nextTokenIs(b, "<string>", DQSTRING, SQSTRING)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, MasTypes.STRING, "<string>");
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.SQSTRING);
-    if (!r) r = GeneratedParserUtilBase.consumeToken(b, MasTypes.DQSTRING);
+    Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
+    r = consumeToken(b, SQSTRING);
+    if (!r) r = consumeToken(b, DQSTRING);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -616,19 +615,19 @@ public class MasParser implements PsiParser, LightPsiParser {
   // USE_CASE_VAL 'module'?
   public static boolean useCase(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useCase")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.USE_CASE_VAL)) return false;
+    if (!nextTokenIs(b, USE_CASE_VAL)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.USE_CASE_VAL);
+    r = consumeToken(b, USE_CASE_VAL);
     r = r && useCase_1(b, l + 1);
-    exit_section_(b, m, MasTypes.USE_CASE, r);
+    exit_section_(b, m, USE_CASE, r);
     return r;
   }
 
   // 'module'?
   private static boolean useCase_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useCase_1")) return false;
-    GeneratedParserUtilBase.consumeToken(b, MasTypes.MODULE);
+    consumeToken(b, MODULE);
     return true;
   }
 
@@ -636,15 +635,15 @@ public class MasParser implements PsiParser, LightPsiParser {
   // 'use' moduleId 'as' useCase '.'
   public static boolean useClause(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "useClause")) return false;
-    if (!GeneratedParserUtilBase.nextTokenIs(b, MasTypes.USE)) return false;
+    if (!nextTokenIs(b, USE)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = GeneratedParserUtilBase.consumeToken(b, MasTypes.USE);
+    r = consumeToken(b, USE);
     r = r && moduleId(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.AS);
+    r = r && consumeToken(b, AS);
     r = r && useCase(b, l + 1);
-    r = r && GeneratedParserUtilBase.consumeToken(b, MasTypes.DOT);
-    exit_section_(b, m, MasTypes.USE_CLAUSE, r);
+    r = r && consumeToken(b, DOT);
+    exit_section_(b, m, USE_CLAUSE, r);
     return r;
   }
 

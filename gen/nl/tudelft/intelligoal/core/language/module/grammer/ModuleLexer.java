@@ -4,9 +4,11 @@ package nl.tudelft.intelligoal.core.language.module.grammer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.TokenType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
+import static nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes.*;
 
 
 /**
@@ -829,347 +831,347 @@ public class ModuleLexer implements FlexLexer {
             }
           case 90: break;
           case 3: 
-            { return ModuleTypes.ATOM;
+            { return ATOM;
             }
           case 91: break;
           case 4: 
-            { return ModuleTypes.MINUS;
+            { return MINUS;
             }
           case 92: break;
           case 5: 
-            { return ModuleTypes.INTEGER;
+            { return INTEGER;
             }
           case 93: break;
           case 6: 
-            { return ModuleTypes.VARIABLE;
+            { return VARIABLE;
             }
           case 94: break;
           case 7: 
-            { return ModuleTypes.DOT;
+            { return DOT;
             }
           case 95: break;
           case 8: 
-            { return ModuleTypes.PLUS;
+            { return PLUS;
             }
           case 96: break;
           case 9: 
-            { return ModuleTypes.INV;
+            { return INV;
             }
           case 97: break;
           case 10: 
-            { return ModuleTypes.LINE_COMMENT;
+            { return LINE_COMMENT;
             }
           case 98: break;
           case 11: 
-            { return ModuleTypes.COMMA;
+            { return COMMA;
             }
           case 99: break;
           case 12: 
-            { return ModuleTypes.EQ;
+            { return EQ;
             }
           case 100: break;
           case 13: 
-            { return ModuleTypes.OBRACKET;
+            { return OBRACKET;
             }
           case 101: break;
           case 14: 
-            { return ModuleTypes.CBRACKET;
+            { return CBRACKET;
             }
           case 102: break;
           case 15: 
-            { return ModuleTypes.OPAREN;
+            { return OPAREN;
             }
           case 103: break;
           case 16: 
-            { return ModuleTypes.CPAREN;
+            { return CPAREN;
             }
           case 104: break;
           case 17: 
-            { return ModuleTypes.OPEN_CURLY;
+            { return OPEN_CURLY;
             }
           case 105: break;
           case 18: 
-            { return ModuleTypes.CLOSE_CURLY;
+            { return CLOSE_CURLY;
             }
           case 106: break;
           case 19: 
-            { return ModuleTypes.BANG;
+            { return BANG;
             }
           case 107: break;
           case 20: 
-            { return ModuleTypes.WHAT;
+            { return WHAT;
             }
           case 108: break;
           case 21: 
-            { return ModuleTypes.LT;
+            { return LT;
             }
           case 109: break;
           case 22: 
-            { return ModuleTypes.SEMI;
+            { return SEMI;
             }
           case 110: break;
           case 23: 
-            { return ModuleTypes.BAR;
+            { return BAR;
             }
           case 111: break;
           case 24: 
-            { return ModuleTypes.GT;
+            { return GT;
             }
           case 112: break;
           case 25: 
-            { return ModuleTypes.MULT;
+            { return MULT;
             }
           case 113: break;
           case 26: 
-            { return ModuleTypes.COLON;
+            { return COLON;
             }
           case 114: break;
           case 27: 
-            { return ModuleTypes.SLASH;
+            { return SLASH;
             }
           case 115: break;
           case 28: 
-            { return ModuleTypes.POW2;
+            { return POW2;
             }
           case 116: break;
           case 29: 
-            { return ModuleTypes.AS;
+            { return AS;
             }
           case 117: break;
           case 30: 
-            { return ModuleTypes.IF;
+            { return IF;
             }
           case 118: break;
           case 31: 
-            { return ModuleTypes.DO;
+            { return DO;
             }
           case 119: break;
           case 32: 
-            { return ModuleTypes.IMPLIES;
+            { return IMPLIES;
             }
           case 120: break;
           case 33: 
-            { return ModuleTypes.SQSTRING;
+            { return SQSTRING;
             }
           case 121: break;
           case 34: 
-            { return ModuleTypes.UNPLUS;
+            { return UNPLUS;
             }
           case 122: break;
           case 35: 
-            { return ModuleTypes.NOT_UNIFY;
+            { return NOT_UNIFY;
             }
           case 123: break;
           case 36: 
-            { return ModuleTypes.BITWISE_OR;
+            { return BITWISE_OR;
             }
           case 124: break;
           case 37: 
-            { return ModuleTypes.DQSTRING;
+            { return DQSTRING;
             }
           case 125: break;
           case 38: 
-            { return ModuleTypes.IDENTICAL;
+            { return IDENTICAL;
             }
           case 126: break;
           case 39: 
-            { return ModuleTypes.LEQ;
+            { return LEQ;
             }
           case 127: break;
           case 40: 
-            { return ModuleTypes.REVERSE_SNEK;
+            { return REVERSE_SNEK;
             }
           case 128: break;
           case 41: 
-            { return ModuleTypes.BITSHIFT_LEFT;
+            { return BITSHIFT_LEFT;
             }
           case 129: break;
           case 42: 
-            { return ModuleTypes.GE;
+            { return GE;
             }
           case 130: break;
           case 43: 
-            { return ModuleTypes.BITSHIFT_RIGHT;
+            { return BITSHIFT_RIGHT;
             }
           case 131: break;
           case 44: 
-            { return ModuleTypes.POW;
+            { return POW;
             }
           case 132: break;
           case 45: 
-            { return ModuleTypes.GENERAL_LT;
+            { return GENERAL_LT;
             }
           case 133: break;
           case 46: 
-            { return ModuleTypes.GENERAL_GT;
+            { return GENERAL_GT;
             }
           case 134: break;
           case 47: 
-            { return ModuleTypes.BITWISE_AND;
+            { return BITWISE_AND;
             }
           case 135: break;
           case 48: 
-            { return ModuleTypes.INT_DIV;
+            { return INT_DIV;
             }
           case 136: break;
           case 49: 
-            { return ModuleTypes.SELECTOR_VAL;
+            { return SELECTOR_VAL;
             }
           case 137: break;
           case 50: 
-            { return ModuleTypes.NOT;
+            { return NOT;
             }
           case 138: break;
           case 51: 
-            { return ModuleTypes.FOCUS_VAL;
+            { return FOCUS_VAL;
             }
           case 139: break;
           case 52: 
-            { return ModuleTypes.LOG;
+            { return LOG;
             }
           case 140: break;
           case 53: 
-            { return ModuleTypes.BEL;
+            { return BEL;
             }
           case 141: break;
           case 54: 
-            { return ModuleTypes.REAL;
+            { return REAL;
             }
           case 142: break;
           case 55: 
-            { return ModuleTypes.NOT_IDENTICAL;
+            { return NOT_IDENTICAL;
             }
           case 143: break;
           case 56: 
-            { return ModuleTypes.USE;
+            { return USE;
             }
           case 144: break;
           case 57: 
-            { return ModuleTypes.UNIV;
+            { return UNIV;
             }
           case 145: break;
           case 58: 
-            { return ModuleTypes.VARIANT;
+            { return VARIANT;
             }
           case 146: break;
           case 59: 
-            { return ModuleTypes.EVALUATES;
+            { return EVALUATES;
             }
           case 147: break;
           case 60: 
-            { return ModuleTypes.PARTIAL_UNIFICATION;
+            { return PARTIAL_UNIFICATION;
             }
           case 148: break;
           case 61: 
-            { return ModuleTypes.SOFT_IMPLIES;
+            { return SOFT_IMPLIES;
             }
           case 149: break;
           case 62: 
-            { return ModuleTypes.GENERAL_LE;
+            { return GENERAL_LE;
             }
           case 150: break;
           case 63: 
-            { return ModuleTypes.GENERAL_GE;
+            { return GENERAL_GE;
             }
           case 151: break;
           case 64: 
-            { return ModuleTypes.TRUE;
+            { return TRUE;
             }
           case 152: break;
           case 65: 
-            { return ModuleTypes.THEN;
+            { return THEN;
             }
           case 153: break;
           case 66: 
-            { return ModuleTypes.SENT;
+            { return SENT;
             }
           case 154: break;
           case 67: 
-            { return ModuleTypes.SEND;
+            { return SEND;
             }
           case 155: break;
           case 68: 
-            { return ModuleTypes.EXIT;
+            { return EXIT;
             }
           case 156: break;
           case 69: 
-            { return ModuleTypes.DROP;
+            { return DROP;
             }
           case 157: break;
           case 70: 
-            { return ModuleTypes.GOAL;
+            { return GOAL;
             }
           case 158: break;
           case 71: 
-            { return ModuleTypes.NOT_VARIANT;
+            { return NOT_VARIANT;
             }
           case 159: break;
           case 72: 
-            { return ModuleTypes.ADOPT;
+            { return ADOPT;
             }
           case 160: break;
           case 73: 
-            { return ModuleTypes.ORDER;
+            { return ORDER;
             }
           case 161: break;
           case 74: 
-            { return ModuleTypes.EXIT_VAL;
+            { return EXIT_VAL;
             }
           case 162: break;
           case 75: 
-            { return ModuleTypes.PRINT;
+            { return PRINT;
             }
           case 163: break;
           case 76: 
-            { return ModuleTypes.BASIC_USAGE_VAL;
+            { return BASIC_USAGE_VAL;
             }
           case 164: break;
           case 77: 
-            { return ModuleTypes.FOCUS;
+            { return FOCUS;
             }
           case 165: break;
           case 78: 
-            { return ModuleTypes.AGOAL;
+            { return AGOAL;
             }
           case 166: break;
           case 79: 
-            { return ModuleTypes.INSERT;
+            { return INSERT;
             }
           case 167: break;
           case 80: 
-            { return ModuleTypes.ORDER_VAL;
+            { return ORDER_VAL;
             }
           case 168: break;
           case 81: 
-            { return ModuleTypes.DELETE;
+            { return DELETE;
             }
           case 169: break;
           case 82: 
-            { return ModuleTypes.DEFINE;
+            { return DEFINE;
             }
           case 170: break;
           case 83: 
-            { return ModuleTypes.GOALA;
+            { return GOALA;
             }
           case 171: break;
           case 84: 
-            { return ModuleTypes.FORALL;
+            { return FORALL;
             }
           case 172: break;
           case 85: 
-            { return ModuleTypes.MODULE;
+            { return MODULE;
             }
           case 173: break;
           case 86: 
-            { return ModuleTypes.PERCEPT;
+            { return PERCEPT;
             }
           case 174: break;
           case 87: 
-            { return ModuleTypes.LISTALL;
+            { return LISTALL;
             }
           case 175: break;
           case 88: 
-            { return ModuleTypes.EXIT_MODULE;
+            { return EXIT_MODULE;
             }
           case 176: break;
           default:

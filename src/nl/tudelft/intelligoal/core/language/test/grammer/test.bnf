@@ -4,9 +4,9 @@
 
     psiClassPrefix="Test"
     psiImplClassSuffix="Impl"
-    psiPackage="nl.tudelft.core.language.test.grammer.psi.iface"
-    psiImplPackage="nl.tudelft.core.language.test.grammer.psi.impl"
-    psiImplUtilClass="nl.tudelft.core.language.test.grammer.psi.impl.TestImpl"
+    psiPackage="nl.tudelft.intelligoal.core.language.test.grammer.psi.iface"
+    psiImplPackage="nl.tudelft.intelligoal.core.language.test.grammer.psi.impl"
+    psiImplUtilClass="nl.tudelft.intelligoal.core.language.test.grammer.psi.impl.TestImpl"
 
     elementTypeHolderClass="nl.tudelft.intelligoal.core.language.test.grammer.TestTypes"
     elementTypeClass="nl.tudelft.intelligoal.core.language.test.grammer.TestElementType"

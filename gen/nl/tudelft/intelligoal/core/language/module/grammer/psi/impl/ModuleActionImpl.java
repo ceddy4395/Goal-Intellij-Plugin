@@ -1,22 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package nl.tudelft.intelligoal.core.language.module.grammer.psi.impl;
 
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleAdoptAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleDeleteAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleDropAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleInsertAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModulePredicateAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleSelector;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleSendAction;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleTerm;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleTermList;
-import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.ModuleVisitor;
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static nl.tudelft.intelligoal.core.language.module.grammer.ModuleTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.module.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.module.grammer.psi.iface.*;
 
 public class ModuleActionImpl extends ASTWrapperPsiElement implements ModuleAction {
 

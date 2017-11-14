@@ -1,20 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package nl.tudelft.intelligoal.core.language.test.grammer.psi.impl;
 
-import nl.tudelft.intelligoal.core.language.test.grammer.TestTypes;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestBasicTerm;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestList;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestNumber;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestPredicate;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestString;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestTermList;
-import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.TestVisitor;
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static nl.tudelft.intelligoal.core.language.test.grammer.TestTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import nl.tudelft.core.language.test.grammer.psi.iface.*;
+import nl.tudelft.intelligoal.core.language.test.grammer.psi.iface.*;
 
 public class TestBasicTermImpl extends ASTWrapperPsiElement implements TestBasicTerm {
 
@@ -64,7 +59,7 @@ public class TestBasicTermImpl extends ASTWrapperPsiElement implements TestBasic
   @Override
   @Nullable
   public PsiElement getVariable() {
-    return findChildByType(TestTypes.VARIABLE);
+    return findChildByType(VARIABLE);
   }
 
 }
