@@ -27,10 +27,22 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
-      <fileTypeFactory implementation="nl.tudelft.core.file.FileFactory.GoalFileFactory"/>
-    <lang.parserDefinition language="Goal" implementationClass="nl.tudelft.core.RunConfiguration.GoalParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Goal" implementationClass="nl.tudelft.core.language.Syntax.GoalSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="nl.tudelft.core.language.Syntax.GoalColorSettingsPage"/>
+      <fileTypeFactory implementation="nl.tudelft.core.file.GoalFileFactory"/>
+
+    <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.grammer.MasParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.core.language.mas.MasSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="Prolog" implementationClass="nl.tudelft.core.language.prolog.grammer.PrologParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Prolog" implementationClass="nl.tudelft.core.language.prolog.PrologSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.grammer.ActionSpecParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL actionspec" implementationClass="nl.tudelft.core.language.actionspec.ActionSpecSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="Goal Module" implementationClass="nl.tudelft.core.language.module.grammer.ModuleParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Goal Module" implementationClass="nl.tudelft.core.language.module.ModuleSyntaxHighligtherFactory"/>
+
+    <lang.parserDefinition language="GOAL Test" implementationClass="nl.tudelft.core.language.test.grammer.TestParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="GOAL Test" implementationClass="nl.tudelft.core.language.test.TestSyntaxHighlighterFactory"/>
     <!-- Add your extensions here -->
   </extensions>
 

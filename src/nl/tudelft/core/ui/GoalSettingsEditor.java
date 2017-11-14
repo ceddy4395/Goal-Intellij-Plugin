@@ -10,7 +10,7 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
-import nl.tudelft.core.file.FileFactory.MAS2GFileType;
+import nl.tudelft.core.language.mas.file.MAS2GFileType;
 import nl.tudelft.core.RunConfiguration.GoalRunConfiguration;
 import org.jetbrains.annotations.NotNull;
 
