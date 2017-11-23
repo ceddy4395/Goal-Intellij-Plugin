@@ -10,7 +10,7 @@ public final class GoalRuntime {
     /**
      * The global instance.
      */
-    private static GoalRuntime instance = null;
+    public static GoalRuntime instance = new GoalRuntime();
 
     /**
      * Returns the runtime instance.

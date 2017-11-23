@@ -71,7 +71,8 @@ public class GoalRunConfiguration extends RunConfigurationBase {
                         //preferences.toString(),
                         GoalRunConfiguration.this.runFilePath
                 );
-                //System.out.println("command: " + line.getCommandLineString());
+                System.out.println("command: " + line.getCommandLineString());
+
 
                 final Process process = line.createProcess();
 

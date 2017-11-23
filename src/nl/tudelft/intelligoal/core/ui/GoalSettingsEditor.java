@@ -53,7 +53,9 @@ public class GoalSettingsEditor extends SettingsEditor<GoalRunConfiguration> {
         this.fileBox = new TextFieldWithBrowseButton.NoPathCompletion();
         this.fileBox.addActionListener(event -> this.fileChooser.showDialog());
         this.fileBox.setEditable(false);
-        this.fileBox.setEditable(true);
+        this.fileBox.setAlignmentX(0);
+        this.fileBox.setAlignmentY(0);
+        //this.fileBox.setEditable(true);
 
         this.ui.add(fileLabel);
         this.ui.add(this.fileBox);

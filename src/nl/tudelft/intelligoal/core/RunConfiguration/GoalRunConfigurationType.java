@@ -3,7 +3,6 @@ package nl.tudelft.intelligoal.core.RunConfiguration;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import nl.tudelft.intelligoal.core.Icons;
-import nl.tudelft.intelligoal.core.language.GoalConfigurationFactory;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;

@@ -54,6 +54,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <configurationType implementation="nl.tudelft.intelligoal.core.RunConfiguration.GoalRunConfigurationType"/>
+    <configurationType implementation="nl.tudelft.intelligoal.core.RunConfiguration.GoalDebugConfigurationType"/>
   </extensions>
 
   <actions>
