@@ -35,6 +35,7 @@
   <extensions defaultExtensionNs="com.intellij">
       <fileTypeFactory implementation="nl.tudelft.intelligoal.core.file.GoalFileFactory"/>
 
+
     <lang.parserDefinition language="GOAL MAS" implementationClass="nl.tudelft.intelligoal.core.language.mas.grammer.MasParserDefinition"/>
     <lang.syntaxHighlighterFactory language="GOAL MAS" implementationClass="nl.tudelft.intelligoal.core.language.mas.MasSyntaxHighlighterFactory"/>
 

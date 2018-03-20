@@ -2,13 +2,14 @@ package nl.tudelft.intelligoal.core.RunConfiguration;
 
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
+import com.intellij.execution.configurations.RunConfigurationWithSuppressedDefaultDebugAction;
 import nl.tudelft.intelligoal.core.Icons;
 import nl.tudelft.intelligoal.core.language.GoalConfigurationFactory;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class GoalRunConfigurationType implements ConfigurationType {
+public class GoalRunConfigurationType implements ConfigurationType, RunConfigurationWithSuppressedDefaultDebugAction {
     @Override
     public String getDisplayName() {
         return "Goal";
